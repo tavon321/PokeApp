@@ -15,6 +15,7 @@
 		DC23CEA32506CB0D00ACCD50 /* PokemonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */; };
 		DC23CEA62506E3FC00ACCD50 /* PokemonRemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */; };
 		DC23CEA82506E46100ACCD50 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA72506E46100ACCD50 /* HTTPClient.swift */; };
+		DC23CEAA2506E4E900ACCD50 /* PokemonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLoader.swift; sourceTree = "<group>"; };
 		DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRemoteLoader.swift; sourceTree = "<group>"; };
 		DC23CEA72506E46100ACCD50 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */,
 				DC23CEA72506E46100ACCD50 /* HTTPClient.swift */,
+				DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				DC23CEA82506E46100ACCD50 /* HTTPClient.swift in Sources */,
 				DC23CE9C2506C9D500ACCD50 /* Pokemon.swift in Sources */,
 				DC23CEA12506CAD800ACCD50 /* Type.swift in Sources */,
+				DC23CEAA2506E4E900ACCD50 /* PokemonMapper.swift in Sources */,
 				DC23CEA32506CB0D00ACCD50 /* PokemonLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
