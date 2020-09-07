@@ -38,6 +38,8 @@ class PokemonPresenter {
     private let loadingView: PokemonLoadingView
     private let pokemonView: PokemonView
     
+    private var pokemonLoadError: String { return "Couldn't load Pokemons" }
+    
     init(errorView: PokemonErrorView, loadingView: PokemonLoadingView, pokemonView: PokemonView) {
         self.errorView = errorView
         self.loadingView = loadingView
@@ -52,6 +54,11 @@ class PokemonPresenter {
     func didFinishLoading(with pokemons: [Pokemon]) {
         loadingView.display(false)
         pokemonView.display(PokemonListViewModel(list: pokemons))
+    }
+    
+    func didFinishLoading(with error: Error) {
+        loadingView.display(false)
+        errorView.display(PokemonErrorViewModel(message: pokemonLoadError))
     }
     
 }
@@ -69,7 +76,7 @@ class PokemonPresenterTests: XCTestCase {
         ])
     }
     
-    func test_didFinishLoadingPokemons_displayPokemonsAndStarLoading() {
+    func test_didFinishLoadingPokemons_displayPokemonsAndStopLoading() {
         let (sut, view) = makeSUT()
         let pokemons = [anyPokemon]
 
@@ -78,6 +85,19 @@ class PokemonPresenterTests: XCTestCase {
         XCTAssertEqual(view.messages, [
             .display(isLoading: false),
             .display(pokemons: pokemons)
+        ])
+    }
+    
+    func test_didFinishLoadingWithError_stopsLoadingAndDisplayErrorMessage() {
+        let (sut, view) = makeSUT()
+        let anyError = NSError(domain: "", code: 0)
+        let errorMessage = "Couldn't load Pokemons"
+        
+        sut.didFinishLoading(with: anyError)
+        
+        XCTAssertEqual(view.messages, [
+            .display(isLoading: false),
+            .display(errorMessage: errorMessage)
         ])
     }
     
