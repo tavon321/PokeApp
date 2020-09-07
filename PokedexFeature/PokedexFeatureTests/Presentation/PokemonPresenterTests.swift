@@ -9,60 +9,6 @@
 import XCTest
 import PokedexFeature
 
-struct PokemonErrorViewModel {
-    public let message: String?
-    
-    static var noError: PokemonErrorViewModel {
-        return PokemonErrorViewModel(message: nil)
-    }
-}
-
-struct PokemonListViewModel {
-    var list: [Pokemon]
-}
-
-protocol PokemonView {
-    func display(_ viewModel: PokemonListViewModel)
-}
-
-protocol PokemonErrorView {
-    func display(_ viewModel: PokemonErrorViewModel)
-}
-
-public protocol PokemonLoadingView {
-    func display(_ isLoading: Bool)
-}
-
-class PokemonPresenter {
-    private let errorView: PokemonErrorView
-    private let loadingView: PokemonLoadingView
-    private let pokemonView: PokemonView
-    
-    private var pokemonLoadError: String { return "Couldn't load Pokemons" }
-    
-    init(errorView: PokemonErrorView, loadingView: PokemonLoadingView, pokemonView: PokemonView) {
-        self.errorView = errorView
-        self.loadingView = loadingView
-        self.pokemonView = pokemonView
-    }
-    
-    func didStartLoadingPokemons() {
-        errorView.display(.noError)
-        loadingView.display(true)
-    }
-    
-    func didFinishLoading(with pokemons: [Pokemon]) {
-        loadingView.display(false)
-        pokemonView.display(PokemonListViewModel(list: pokemons))
-    }
-    
-    func didFinishLoading(with error: Error) {
-        loadingView.display(false)
-        errorView.display(PokemonErrorViewModel(message: pokemonLoadError))
-    }
-    
-}
-
 class PokemonPresenterTests: XCTestCase {
     
     func test_didStartLoadingPokemons_displayNoErrorAndStartLoading() {
