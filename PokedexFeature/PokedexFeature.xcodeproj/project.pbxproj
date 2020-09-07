@@ -19,10 +19,20 @@
 		DC23CEAD2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */; };
 		DC23CEAF2506E7F400ACCD50 /* URLSessionHttpClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEAE2506E7F400ACCD50 /* URLSessionHttpClientTest.swift */; };
 		DC23CEB12506E81900ACCD50 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEB02506E81900ACCD50 /* URLSessionHTTPClient.swift */; };
+		DC23CEB92506EBA800ACCD50 /* PokedexAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEB82506EBA800ACCD50 /* PokedexAPIEndToEndTests.swift */; };
+		DC23CEBB2506EBA800ACCD50 /* PokedexFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC23CE802506C9B400ACCD50 /* PokedexFeature.framework */; };
+		DC23CEC12506ECAF00ACCD50 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		DC23CE8B2506C9B400ACCD50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC23CE772506C9B400ACCD50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC23CE7F2506C9B400ACCD50;
+			remoteInfo = PokedexFeature;
+		};
+		DC23CEBC2506EBA800ACCD50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC23CE772506C9B400ACCD50 /* Project object */;
 			proxyType = 1;
@@ -47,6 +57,9 @@
 		DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		DC23CEAE2506E7F400ACCD50 /* URLSessionHttpClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClientTest.swift; sourceTree = "<group>"; };
 		DC23CEB02506E81900ACCD50 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		DC23CEB62506EBA800ACCD50 /* PokedexFeatureTestsEndToEnd.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexFeatureTestsEndToEnd.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC23CEB82506EBA800ACCD50 /* PokedexAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexAPIEndToEndTests.swift; sourceTree = "<group>"; };
+		DC23CEBA2506EBA800ACCD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +78,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC23CEB32506EBA800ACCD50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC23CEBB2506EBA800ACCD50 /* PokedexFeature.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -73,6 +94,7 @@
 			children = (
 				DC23CE822506C9B400ACCD50 /* PokedexFeature */,
 				DC23CE8D2506C9B400ACCD50 /* PokedexFeatureTests */,
+				DC23CEB72506EBA800ACCD50 /* PokedexFeatureTestsEndToEnd */,
 				DC23CE812506C9B400ACCD50 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,6 +104,7 @@
 			children = (
 				DC23CE802506C9B400ACCD50 /* PokedexFeature.framework */,
 				DC23CE892506C9B400ACCD50 /* PokedexFeatureTests.xctest */,
+				DC23CEB62506EBA800ACCD50 /* PokedexFeatureTestsEndToEnd.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +168,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		DC23CEB72506EBA800ACCD50 /* PokedexFeatureTestsEndToEnd */ = {
+			isa = PBXGroup;
+			children = (
+				DC23CEB82506EBA800ACCD50 /* PokedexAPIEndToEndTests.swift */,
+				DC23CEBA2506EBA800ACCD50 /* Info.plist */,
+			);
+			path = PokedexFeatureTestsEndToEnd;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -195,6 +227,24 @@
 			productReference = DC23CE892506C9B400ACCD50 /* PokedexFeatureTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DC23CEB52506EBA800ACCD50 /* PokedexFeatureTestsEndToEnd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC23CEBE2506EBA800ACCD50 /* Build configuration list for PBXNativeTarget "PokedexFeatureTestsEndToEnd" */;
+			buildPhases = (
+				DC23CEB22506EBA800ACCD50 /* Sources */,
+				DC23CEB32506EBA800ACCD50 /* Frameworks */,
+				DC23CEB42506EBA800ACCD50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC23CEBD2506EBA800ACCD50 /* PBXTargetDependency */,
+			);
+			name = PokedexFeatureTestsEndToEnd;
+			productName = PokedexFeatureTestsEndToEnd;
+			productReference = DC23CEB62506EBA800ACCD50 /* PokedexFeatureTestsEndToEnd.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,6 +260,9 @@
 						LastSwiftMigration = 1160;
 					};
 					DC23CE882506C9B400ACCD50 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					DC23CEB52506EBA800ACCD50 = {
 						CreatedOnToolsVersion = 11.6;
 					};
 				};
@@ -229,6 +282,7 @@
 			targets = (
 				DC23CE7F2506C9B400ACCD50 /* PokedexFeature */,
 				DC23CE882506C9B400ACCD50 /* PokedexFeatureTests */,
+				DC23CEB52506EBA800ACCD50 /* PokedexFeatureTestsEndToEnd */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +296,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DC23CE872506C9B400ACCD50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC23CEB42506EBA800ACCD50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,6 +336,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC23CEB22506EBA800ACCD50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC23CEB92506EBA800ACCD50 /* PokedexAPIEndToEndTests.swift in Sources */,
+				DC23CEC12506ECAF00ACCD50 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -282,6 +352,11 @@
 			isa = PBXTargetDependency;
 			target = DC23CE7F2506C9B400ACCD50 /* PokedexFeature */;
 			targetProxy = DC23CE8B2506C9B400ACCD50 /* PBXContainerItemProxy */;
+		};
+		DC23CEBD2506EBA800ACCD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC23CE7F2506C9B400ACCD50 /* PokedexFeature */;
+			targetProxy = DC23CEBC2506EBA800ACCD50 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -494,6 +569,42 @@
 			};
 			name = Release;
 		};
+		DC23CEBF2506EBA800ACCD50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EN79VQJFV3;
+				INFOPLIST_FILE = PokedexFeatureTestsEndToEnd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BuildingEngines.Prism.PokedexFeatureTestsEndToEnd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DC23CEC02506EBA800ACCD50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EN79VQJFV3;
+				INFOPLIST_FILE = PokedexFeatureTestsEndToEnd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BuildingEngines.Prism.PokedexFeatureTestsEndToEnd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -520,6 +631,15 @@
 			buildConfigurations = (
 				DC23CE982506C9B400ACCD50 /* Debug */,
 				DC23CE992506C9B400ACCD50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC23CEBE2506EBA800ACCD50 /* Build configuration list for PBXNativeTarget "PokedexFeatureTestsEndToEnd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC23CEBF2506EBA800ACCD50 /* Debug */,
+				DC23CEC02506EBA800ACCD50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
