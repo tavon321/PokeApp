@@ -12,6 +12,7 @@
 		DC23CE912506C9B400ACCD50 /* PokedexFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = DC23CE832506C9B400ACCD50 /* PokedexFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC23CE9C2506C9D500ACCD50 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CE9B2506C9D500ACCD50 /* Pokemon.swift */; };
 		DC23CEA12506CAD800ACCD50 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA02506CAD800ACCD50 /* Type.swift */; };
+		DC23CEA32506CB0D00ACCD50 /* PokemonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		DC23CE902506C9B400ACCD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC23CE9B2506C9D500ACCD50 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		DC23CEA02506CAD800ACCD50 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		DC23CE9A2506C9C500ACCD50 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */,
 				DC23CE9D2506CA7900ACCD50 /* Model */,
 				DC23CE832506C9B400ACCD50 /* PokedexFeature.h */,
 			);
@@ -220,6 +223,7 @@
 			files = (
 				DC23CE9C2506C9D500ACCD50 /* Pokemon.swift in Sources */,
 				DC23CEA12506CAD800ACCD50 /* Type.swift in Sources */,
+				DC23CEA32506CB0D00ACCD50 /* PokemonLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
