@@ -154,9 +154,13 @@ class PokemonRemoteLoaderTests: XCTestCase {
         }
     }
     
-    private func createSUT(with url: URL = URL(string: "https://a-url.com")!) -> (sut: PokemonRemoteLoader, client: HTTPClientSpy) {
+    private func createSUT(with url: URL = URL(string: "https://a-url.com")!,
+                           file: StaticString = #file, line: UInt = #line) -> (sut: PokemonRemoteLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = PokemonRemoteLoader(url: url, client: client)
+        
+        trackForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
         
         return (sut: sut, client: client)
     }

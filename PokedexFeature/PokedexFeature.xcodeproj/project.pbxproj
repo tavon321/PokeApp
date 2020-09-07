@@ -16,6 +16,7 @@
 		DC23CEA62506E3FC00ACCD50 /* PokemonRemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */; };
 		DC23CEA82506E46100ACCD50 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA72506E46100ACCD50 /* HTTPClient.swift */; };
 		DC23CEAA2506E4E900ACCD50 /* PokemonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */; };
+		DC23CEAD2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRemoteLoader.swift; sourceTree = "<group>"; };
 		DC23CEA72506E46100ACCD50 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMapper.swift; sourceTree = "<group>"; };
+		DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		DC23CE8D2506C9B400ACCD50 /* PokedexFeatureTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC23CEAB2506E65800ACCD50 /* Helpers */,
 				DC23CE8E2506C9B400ACCD50 /* PokemonRemoteLoaderTests.swift */,
 				DC23CE902506C9B400ACCD50 /* Info.plist */,
 			);
@@ -126,6 +129,14 @@
 				DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		DC23CEAB2506E65800ACCD50 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC23CE8F2506C9B400ACCD50 /* PokemonRemoteLoaderTests.swift in Sources */,
+				DC23CEAD2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
