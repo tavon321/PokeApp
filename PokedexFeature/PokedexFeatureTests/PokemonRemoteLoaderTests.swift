@@ -31,16 +31,14 @@ protocol HTTPClient {
 class PokemonRemoteLoaderTests: XCTestCase {
     
     func test_init_doesNotRequestFromURL() {
-        let client = HTTPClientSpy()
-        _ = PokemonRemoteLoader(url: anyURL, client: client)
+        let (_, client) = createSUT()
         
         XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
     func test_load_requestDataFromURL() {
-        let client = HTTPClientSpy()
         let expectedURL = anyURL
-        let sut = PokemonRemoteLoader(url: expectedURL, client: client)
+        let (sut, client) = createSUT(with: expectedURL)
         
         sut.load()
         
@@ -56,6 +54,13 @@ class PokemonRemoteLoaderTests: XCTestCase {
         func get(from url: URL) {
             requestedURLs.append(url)
         }
+    }
+    
+    private func createSUT(with url: URL = URL(string: "https://a-url.com")!) -> (sut: PokemonRemoteLoader, client: HTTPClientSpy) {
+        let client = HTTPClientSpy()
+        let sut = PokemonRemoteLoader(url: url, client: client)
+        
+        return (sut: sut, client: client)
     }
 
 }
