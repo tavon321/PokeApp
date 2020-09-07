@@ -9,7 +9,7 @@
 import XCTest
 import PokedexFeature
 
-class PokemonRemoteLoader {
+class PokemonRemoteLoader: PokemonLoader {
     
     private let url: URL
     private let client: HTTPClient
@@ -19,13 +19,21 @@ class PokemonRemoteLoader {
         self.client = client
     }
     
-    func load() {
-        client.get(from: url)
+    func load(completion: @escaping (PokemonLoader.Result) -> Void) {
+        client.get(from: url) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            default:
+                break
+            }
+        }
     }
 }
 
 protocol HTTPClient {
-    func get(from url: URL)
+    typealias Result = Swift.Result<(response: HTTPURLResponse, data: Data), Error>
+    func get(from url: URL, completion: @escaping (Result) -> Void)
 }
 
 class PokemonRemoteLoaderTests: XCTestCase {
@@ -40,20 +48,51 @@ class PokemonRemoteLoaderTests: XCTestCase {
         let expectedURL = anyURL
         let (sut, client) = createSUT(with: expectedURL)
         
-        sut.load()
-        sut.load()
+        sut.load() { _ in }
+        sut.load() { _ in }
         
         XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
+    }
+    
+    func test_load_deliversErrorOnClientError() {
+        let (sut, client) = createSUT()
+        let expectedError = NSError(domain: "an error", code: 0)
+        
+        let exp = expectation(description: "wait for result")
+        sut.load { result in
+            switch result {
+            case let .failure(receivedError as NSError):
+                XCTAssertEqual(receivedError, expectedError)
+            default:
+                XCTFail("Expected failure, got \(result) instead")
+            }
+            
+            exp.fulfill()
+        }
+        
+        client.complete(with: expectedError)
+        
+        wait(for: [exp], timeout: 0.1)
     }
     
     // MARK: Helpers
     var anyURL: URL { return URL(string: "https://a-url.com")! }
     
     class HTTPClientSpy: HTTPClient {
+        var completions = [(HTTPClient.Result) -> Void]()
         var requestedURLs = [URL]()
         
-        func get(from url: URL) {
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
             requestedURLs.append(url)
+            completions.append(completion)
+        }
+        
+        func complete(with error: Error, at index: Int = 0, file: StaticString = #file, line: UInt = #line) {
+            guard completions.count > index else {
+                return XCTFail("getFromURL wasn't called", file: file, line: line)
+            }
+            
+            completions[index](.failure(error))
         }
     }
     
