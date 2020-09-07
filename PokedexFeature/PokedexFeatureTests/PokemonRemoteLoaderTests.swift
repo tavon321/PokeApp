@@ -9,7 +9,6 @@
 import XCTest
 import PokedexFeature
 
-
 class PokemonRemoteLoaderTests: XCTestCase {
     
     func test_init_doesNotRequestFromURL() {
