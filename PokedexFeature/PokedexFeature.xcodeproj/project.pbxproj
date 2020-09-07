@@ -17,6 +17,8 @@
 		DC23CEA82506E46100ACCD50 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA72506E46100ACCD50 /* HTTPClient.swift */; };
 		DC23CEAA2506E4E900ACCD50 /* PokemonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */; };
 		DC23CEAD2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */; };
+		DC23CEAF2506E7F400ACCD50 /* URLSessionHttpClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEAE2506E7F400ACCD50 /* URLSessionHttpClientTest.swift */; };
+		DC23CEB12506E81900ACCD50 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEB02506E81900ACCD50 /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		DC23CEA72506E46100ACCD50 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMapper.swift; sourceTree = "<group>"; };
 		DC23CEAC2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		DC23CEAE2506E7F400ACCD50 /* URLSessionHttpClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClientTest.swift; sourceTree = "<group>"; };
+		DC23CEB02506E81900ACCD50 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			children = (
 				DC23CEAB2506E65800ACCD50 /* Helpers */,
 				DC23CE8E2506C9B400ACCD50 /* PokemonRemoteLoaderTests.swift */,
+				DC23CEAE2506E7F400ACCD50 /* URLSessionHttpClientTest.swift */,
 				DC23CE902506C9B400ACCD50 /* Info.plist */,
 			);
 			path = PokedexFeatureTests;
@@ -127,6 +132,7 @@
 				DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */,
 				DC23CEA72506E46100ACCD50 /* HTTPClient.swift */,
 				DC23CEA92506E4E900ACCD50 /* PokemonMapper.swift */,
+				DC23CEB02506E81900ACCD50 /* URLSessionHTTPClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC23CEB12506E81900ACCD50 /* URLSessionHTTPClient.swift in Sources */,
 				DC23CEA62506E3FC00ACCD50 /* PokemonRemoteLoader.swift in Sources */,
 				DC23CEA82506E46100ACCD50 /* HTTPClient.swift in Sources */,
 				DC23CE9C2506C9D500ACCD50 /* Pokemon.swift in Sources */,
@@ -262,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC23CEAF2506E7F400ACCD50 /* URLSessionHttpClientTest.swift in Sources */,
 				DC23CE8F2506C9B400ACCD50 /* PokemonRemoteLoaderTests.swift in Sources */,
 				DC23CEAD2506E66500ACCD50 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
