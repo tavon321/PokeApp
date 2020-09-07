@@ -74,9 +74,13 @@ class PokemonRemoteLoaderTests: XCTestCase {
     func test_load_deliversConnectivityErrorOnNon200HttpRespone() {
         let (sut, client) = createSUT()
         
-        expect(sut: sut, toCompleteWith: .failure(.connectivity)) {
-            let data = Data("[]".utf8)
-            client.complete(withStatusCode: 199, data: data)
+        let samples = [199, 201, 300, 400, 500].enumerated()
+        
+        samples.forEach { index, code in
+            expect(sut: sut, toCompleteWith: .failure(.connectivity)) {
+                let data = Data("[]".utf8)
+                client.complete(withStatusCode: code, data: data, at: index)
+            }
         }
     }
     
