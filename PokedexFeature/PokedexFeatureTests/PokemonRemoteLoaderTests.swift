@@ -66,9 +66,26 @@ class PokemonRemoteLoaderTests: XCTestCase {
             client.complete(withStatusCode: 200, data: emptyData)
         }
     }
+    
+    func test_load_deliversItemsOn200HTTPRequestJSONWithItems() {
+        let (sut, client) = createSUT()
+        let item = makeItem()
+        
+        expect(sut: sut, toCompleteWith: .success([item.model])) {
+            let emptyData = self.makeItemsJson([item.json])
+            client.complete(withStatusCode: 200, data: emptyData)
+        }
+    }
 
     // MARK: Helpers
     var anyURL: URL { return URL(string: "https://a-url.com")! }
+    
+    private func makeItem() -> (model: Pokemon, json: [String: Any]) {
+        let item = Pokemon(name: "a name", url: anyURL)
+        let json: [String : Any] = ["name": item.name, "url": item.url.absoluteString]
+        
+        return (model: item, json: json)
+    }
     
     private func makeItemsJson(_ items: [[String: Any]]) -> Data {
         let json = ["results": items]

@@ -9,8 +9,8 @@
 import Foundation
 
 public struct Pokemon: Equatable {
-    var name: String
-    var url: URL
+    public var name: String
+    public var url: URL
     
     public init(name: String, url: URL) {
         self.name = name
