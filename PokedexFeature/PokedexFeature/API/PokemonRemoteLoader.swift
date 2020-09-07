@@ -24,7 +24,8 @@ public class PokemonRemoteLoader: PokemonLoader {
     }
     
     public func load(completion: @escaping (PokemonLoader.Result) -> Void) {
-        client.get(from: url) { result in
+        client.get(from: url) { [weak self] result in
+            guard self != nil else { return }
             switch result {
             case .success((let httpResponse, let data)):
                 completion(PokemonMapper.map(httpResponse: httpResponse, data: data))

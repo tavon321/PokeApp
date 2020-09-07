@@ -76,6 +76,21 @@ class PokemonRemoteLoaderTests: XCTestCase {
             client.complete(withStatusCode: 200, data: emptyData)
         }
     }
+    
+    func test_laod_doesNotDeliverResultOnSUTDeallocation() {
+        let client = HTTPClientSpy()
+        var sut: PokemonRemoteLoader? = PokemonRemoteLoader(url: anyURL, client: client)
+        
+        var capturedResult: PokemonLoader.Result?
+        sut!.load { result in
+            capturedResult = result
+        }
+        
+        sut = nil
+        client.complete(withStatusCode: 200, data: Data())
+        
+        XCTAssertNil(capturedResult)
+    }
 
     // MARK: Helpers
     var anyURL: URL { return URL(string: "https://a-url.com")! }
