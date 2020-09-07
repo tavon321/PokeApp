@@ -123,20 +123,22 @@ class PokemonRemoteLoaderTests: XCTestCase {
     }
     
     class HTTPClientSpy: HTTPClient {
-        var completions = [(HTTPClient.Result) -> Void]()
-        var requestedURLs = [URL]()
+        var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
+        var requestedURLs: [URL] {
+            return messages.map { $0.url }
+        }
+        
         
         func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
-            requestedURLs.append(url)
-            completions.append(completion)
+            messages.append((url: url, completion: completion))
         }
         
         func complete(with error: Error, at index: Int = 0, file: StaticString = #file, line: UInt = #line) {
-            guard completions.count > index else {
+            guard messages.count > index else {
                 return XCTFail("getFromURL wasn't called", file: file, line: line)
             }
             
-            completions[index](.failure(error))
+            messages[index].completion(.failure(error))
         }
         
         func complete(withStatusCode code: Int,
@@ -144,7 +146,7 @@ class PokemonRemoteLoaderTests: XCTestCase {
                       at index: Int = 0,
                       file: StaticString = #file,
                       line: UInt = #line) {
-            guard completions.count > index else {
+            guard messages.count > index else {
                 return XCTFail("getFromURL wasn't called", file: file, line: line)
             }
             
@@ -153,7 +155,7 @@ class PokemonRemoteLoaderTests: XCTestCase {
                                            httpVersion: nil,
                                            headerFields: nil)!
             
-            completions[index](.success((response, data)))
+            messages[index].completion(.success((response, data)))
         }
     }
     
