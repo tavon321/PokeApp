@@ -36,13 +36,14 @@ class PokemonRemoteLoaderTests: XCTestCase {
         XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
-    func test_load_requestDataFromURL() {
+    func test_loadTwice_requestDataFromURLTwice() {
         let expectedURL = anyURL
         let (sut, client) = createSUT(with: expectedURL)
         
         sut.load()
+        sut.load()
         
-        XCTAssertEqual(client.requestedURLs, [expectedURL])
+        XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
     }
     
     // MARK: Helpers
