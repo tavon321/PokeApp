@@ -18,6 +18,10 @@ class PokemonRemoteLoader {
         self.url = url
         self.client = client
     }
+    
+    func load() {
+        client.get(from: url)
+    }
 }
 
 protocol HTTPClient {
@@ -30,17 +34,27 @@ class PokemonRemoteLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         _ = PokemonRemoteLoader(url: anyURL, client: client)
         
-        XCTAssertEqual(client.getFromURLCallCount, 0)
+        XCTAssertTrue(client.requestedURLs.isEmpty)
+    }
+    
+    func test_load_requestDataFromURL() {
+        let client = HTTPClientSpy()
+        let expectedURL = anyURL
+        let sut = PokemonRemoteLoader(url: expectedURL, client: client)
+        
+        sut.load()
+        
+        XCTAssertEqual(client.requestedURLs, [expectedURL])
     }
     
     // MARK: Helpers
     var anyURL: URL { return URL(string: "https://a-url.com")! }
     
     class HTTPClientSpy: HTTPClient {
-        var getFromURLCallCount = 0
+        var requestedURLs = [URL]()
         
         func get(from url: URL) {
-            getFromURLCallCount += 1
+            requestedURLs.append(url)
         }
     }
 
