@@ -92,7 +92,7 @@ class PokemonRemoteLoaderTests: XCTestCase {
     }
 
     // MARK: Helpers
-    var anyURL: URL { return URL(string: "https://a-url.com")! }
+    private var anyURL: URL { return URL(string: "https://a-url.com")! }
     
     private func makeItem() -> (model: Pokemon, json: [String: Any]) {
         let item = Pokemon(name: "a name", url: anyURL)

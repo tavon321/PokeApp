@@ -49,6 +49,11 @@ class PokemonPresenter {
         loadingView.display(true)
     }
     
+    func didFinishLoading(with pokemons: [Pokemon]) {
+        loadingView.display(false)
+        pokemonView.display(PokemonListViewModel(list: pokemons))
+    }
+    
 }
 
 class PokemonPresenterTests: XCTestCase {
@@ -63,6 +68,22 @@ class PokemonPresenterTests: XCTestCase {
             .display(isLoading: true)
         ])
     }
+    
+    func test_didFinishLoadingPokemons_displayPokemonsAndStarLoading() {
+        let (sut, view) = makeSUT()
+        let pokemons = [anyPokemon]
+
+        sut.didFinishLoading(with: pokemons)
+
+        XCTAssertEqual(view.messages, [
+            .display(isLoading: false),
+            .display(pokemons: pokemons)
+        ])
+    }
+    
+    // MARK: - Helpers
+    private var anyPokemon: Pokemon { return Pokemon(name: "name", url: anyURL)}
+    private var anyURL: URL { return URL(string: "https://a-url.com")! }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: PokemonPresenter, view: ViewSpy) {
         let view = ViewSpy()
