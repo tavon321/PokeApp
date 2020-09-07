@@ -8,11 +8,6 @@
 
 import Foundation
 
-public protocol HTTPClient {
-    typealias Result = Swift.Result<(response: HTTPURLResponse, data: Data), Error>
-    func get(from url: URL, completion: @escaping (Result) -> Void)
-}
-
 public class PokemonRemoteLoader: PokemonLoader {
     
     private let url: URL
