@@ -18,6 +18,7 @@ class PokemonRemoteLoader: PokemonLoader {
     
     enum Error: Swift.Error {
         case connectivity
+        case invalidData
     }
     
     init(url: URL, client: HTTPClient) {
@@ -32,6 +33,8 @@ class PokemonRemoteLoader: PokemonLoader {
                 guard httpRespone.statusCode == PokemonRemoteLoader.OK_200 else {
                     return completion(.failure(Error.connectivity))
                 }
+                
+                completion(.failure(Error.invalidData))
             case .failure:
                 completion(.failure(Error.connectivity))
             }
@@ -70,12 +73,12 @@ class PokemonRemoteLoaderTests: XCTestCase {
             client.complete(with: expectedError)
         }
     }
-    
+
     func test_load_deliversConnectivityErrorOnNon200HttpRespone() {
         let (sut, client) = createSUT()
-        
+
         let samples = [199, 201, 300, 400, 500].enumerated()
-        
+
         samples.forEach { index, code in
             expect(sut: sut, toCompleteWith: .failure(.connectivity)) {
                 let data = Data("[]".utf8)
@@ -83,7 +86,16 @@ class PokemonRemoteLoaderTests: XCTestCase {
             }
         }
     }
-    
+
+    func test_load_deliversInvalidDataErrorOn200HTTPResponseWithInvalidData() {
+        let (sut, client) = createSUT()
+
+        expect(sut: sut, toCompleteWith: .failure(.invalidData)) {
+            let data = Data("invalid data".utf8)
+            client.complete(withStatusCode: 200, data: data)
+        }
+    }
+
     // MARK: Helpers
     var anyURL: URL { return URL(string: "https://a-url.com")! }
     
@@ -92,6 +104,8 @@ class PokemonRemoteLoaderTests: XCTestCase {
                         file: StaticString = #file,
                         line: UInt = #line,
                         when action: () -> Void) {
+        let exp = expectation(description: "Wait for result")
+        
         sut.load { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.failure(receivedError as PokemonRemoteLoader.Error), .failure(expectedError)):
@@ -99,7 +113,13 @@ class PokemonRemoteLoaderTests: XCTestCase {
             default:
                 XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
             }
+            
+            exp.fulfill()
         }
+        
+        action()
+        
+        wait(for: [exp], timeout: 0.1)
     }
     
     class HTTPClientSpy: HTTPClient {
@@ -121,7 +141,13 @@ class PokemonRemoteLoaderTests: XCTestCase {
         
         func complete(withStatusCode code: Int,
                       data: Data,
-                      at index: Int = 0) {
+                      at index: Int = 0,
+                      file: StaticString = #file,
+                      line: UInt = #line) {
+            guard completions.count > index else {
+                return XCTFail("getFromURL wasn't called", file: file, line: line)
+            }
+            
             let response = HTTPURLResponse(url: requestedURLs[index],
                                            statusCode: code,
                                            httpVersion: nil,
