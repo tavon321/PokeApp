@@ -29,17 +29,39 @@ class PokemonRemoteLoader: PokemonLoader {
     func load(completion: @escaping (PokemonLoader.Result) -> Void) {
         client.get(from: url) { result in
             switch result {
-            case .success((let httpRespone, _)):
-                guard httpRespone.statusCode == PokemonRemoteLoader.OK_200 else {
-                    return completion(.failure(Error.connectivity))
-                }
-                
-                completion(.failure(Error.invalidData))
+            case .success((let httpResponse, let data)):
+                completion(PokemonRemoteLoader.map(httpResponse: httpResponse, data: data))
             case .failure:
                 completion(.failure(Error.connectivity))
             }
         }
     }
+    
+    private struct Root: Decodable {
+        private var results: [RemotePokemon]
+        
+        var pokemons: [Pokemon] {
+            return results.map{ $0.pokemon }
+        }
+    }
+    
+    private struct RemotePokemon: Decodable {
+        var name: String
+        var url: URL
+        
+        var pokemon: Pokemon {
+            return Pokemon(name: name, url: url)
+        }
+    }
+    
+    static private func map(httpResponse: HTTPURLResponse, data: Data) -> PokemonLoader.Result {
+        guard httpResponse.statusCode == PokemonRemoteLoader.OK_200, let root = try? JSONDecoder().decode(Root.self, from: data) else {
+            return .failure(PokemonRemoteLoader.Error.invalidData)
+        }
+        
+        return .success(root.pokemons)
+    }
+    
 }
 
 protocol HTTPClient {
@@ -74,13 +96,13 @@ class PokemonRemoteLoaderTests: XCTestCase {
         }
     }
 
-    func test_load_deliversConnectivityErrorOnNon200HttpRespone() {
+    func test_load_deliversInvalidDataErrorOnNon200HttpRespone() {
         let (sut, client) = createSUT()
 
         let samples = [199, 201, 300, 400, 500].enumerated()
 
         samples.forEach { index, code in
-            expect(sut: sut, toCompleteWith: .failure(.connectivity)) {
+            expect(sut: sut, toCompleteWith: .failure(.invalidData)) {
                 let data = Data("[]".utf8)
                 client.complete(withStatusCode: code, data: data, at: index)
             }
@@ -91,13 +113,26 @@ class PokemonRemoteLoaderTests: XCTestCase {
         let (sut, client) = createSUT()
 
         expect(sut: sut, toCompleteWith: .failure(.invalidData)) {
-            let data = Data("invalid data".utf8)
-            client.complete(withStatusCode: 200, data: data)
+            let invalidData = Data("invalid data".utf8)
+            client.complete(withStatusCode: 200, data: invalidData)
+        }
+    }
+    
+    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONItems() {
+        let (sut, client) = createSUT()
+        expect(sut: sut, toCompleteWith: .success([])) {
+            let emptyData = self.makeItemsJson([])
+            client.complete(withStatusCode: 200, data: emptyData)
         }
     }
 
     // MARK: Helpers
     var anyURL: URL { return URL(string: "https://a-url.com")! }
+    
+    private func makeItemsJson(_ items: [[String: Any]]) -> Data {
+        let json = ["results": items]
+        return try! JSONSerialization.data(withJSONObject: json)
+    }
     
     private func expect(sut: PokemonRemoteLoader,
                         toCompleteWith expectedResult: Result<[Pokemon], PokemonRemoteLoader.Error>,
@@ -108,6 +143,8 @@ class PokemonRemoteLoaderTests: XCTestCase {
         
         sut.load { receivedResult in
             switch (receivedResult, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems)
             case let (.failure(receivedError as PokemonRemoteLoader.Error), .failure(expectedError)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
             default:

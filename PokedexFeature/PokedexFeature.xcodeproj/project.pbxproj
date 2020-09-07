@@ -95,8 +95,8 @@
 		DC23CE9A2506C9C500ACCD50 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */,
 				DC23CE9D2506CA7900ACCD50 /* Model */,
+				DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */,
 				DC23CE832506C9B400ACCD50 /* PokedexFeature.h */,
 			);
 			path = Feature;
