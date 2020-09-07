@@ -9,7 +9,6 @@
 import Foundation
 
 struct Pokemon {
-    var id: UUID
     var name: String
-    var type: Type
+    var url: URL
 }
