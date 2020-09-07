@@ -13,6 +13,7 @@
 		DC23CE9C2506C9D500ACCD50 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CE9B2506C9D500ACCD50 /* Pokemon.swift */; };
 		DC23CEA12506CAD800ACCD50 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA02506CAD800ACCD50 /* Type.swift */; };
 		DC23CEA32506CB0D00ACCD50 /* PokemonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */; };
+		DC23CEA62506E3FC00ACCD50 /* PokemonRemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		DC23CE9B2506C9D500ACCD50 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		DC23CEA02506CAD800ACCD50 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		DC23CEA22506CB0D00ACCD50 /* PokemonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLoader.swift; sourceTree = "<group>"; };
+		DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRemoteLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		DC23CE822506C9B400ACCD50 /* PokedexFeature */ = {
 			isa = PBXGroup;
 			children = (
+				DC23CEA42506E3F000ACCD50 /* API */,
 				DC23CE9A2506C9C500ACCD50 /* Feature */,
 				DC23CE842506C9B400ACCD50 /* Info.plist */,
 			);
@@ -109,6 +112,14 @@
 				DC23CEA02506CAD800ACCD50 /* Type.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC23CEA42506E3F000ACCD50 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DC23CEA52506E3FC00ACCD50 /* PokemonRemoteLoader.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC23CEA62506E3FC00ACCD50 /* PokemonRemoteLoader.swift in Sources */,
 				DC23CE9C2506C9D500ACCD50 /* Pokemon.swift in Sources */,
 				DC23CEA12506CAD800ACCD50 /* Type.swift in Sources */,
 				DC23CEA32506CB0D00ACCD50 /* PokemonLoader.swift in Sources */,
