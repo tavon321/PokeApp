@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Pokemon: Equatable {
+public struct Pokemon: Hashable {
     public var name: String
     public var url: URL
     
