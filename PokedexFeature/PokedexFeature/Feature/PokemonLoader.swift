@@ -10,6 +10,6 @@ import Foundation
 
 public protocol PokemonLoader {
     typealias Result = Swift.Result<[Pokemon], Error>
-    
+
     func load(completion: (Result) -> Void)
 }
