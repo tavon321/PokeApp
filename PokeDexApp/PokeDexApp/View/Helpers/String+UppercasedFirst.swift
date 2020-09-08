@@ -1,5 +1,5 @@
 //
-//  String+Uppercase.swift
+//  String+UppercasedFirst.swift
 //  PokeDexApp
 //
 //  Created by Gustavo Londono on 9/8/20.
