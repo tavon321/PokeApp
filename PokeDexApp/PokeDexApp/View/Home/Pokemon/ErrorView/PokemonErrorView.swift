@@ -10,7 +10,7 @@ import UIKit
 
 class PokemonErrorView: UIView {
     
-    @IBOutlet private var detailTilte: UILabel!
+    @IBOutlet var detailTilte: UILabel!
     
     var retryButtonTappedCompletion: ((_ sender: UIButton) -> Void)?
     

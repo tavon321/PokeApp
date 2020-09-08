@@ -11,12 +11,45 @@ import PokedexFeature
 
 final class PokemonsViewController: UIViewController, Storyboarded {
     
+    // MARK: - UI
     @IBOutlet private var containerView: UIView!
-    
     private var searchController: UISearchController!
-    private var delegate: PokemonViewControllerDelegate?
     private var tableViewDataSource: UITableViewDataSource?
-
+    
+    // MARK: - Dependencies
+    private var delegate: PokemonViewControllerDelegate?
+    
+    // MARK: - Views
+    private lazy var errorView: PokemonErrorView = {
+        let errorView = PokemonErrorView().loadFromNib()!
+        errorView.retryButtonTappedCompletion = { [unowned self] _ in
+            self.refresh()
+        }
+        
+        setConstraintsFor(for: errorView)
+        
+        return errorView
+    }()
+    
+    private lazy var tableView: PokemonTableView = {
+        let tableView = PokemonTableView()
+        setConstraintsFor(for: tableView, multipliyer: 1)
+        return tableView
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        containerView.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        activityIndicator.startAnimating()
+        
+        return activityIndicator
+    }()
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +64,7 @@ final class PokemonsViewController: UIViewController, Storyboarded {
         refresh()
     }
     
+    // MARK: - Helpers
     private func configureNavBar() {
         navigationItem.hidesBackButton = true
     }
@@ -70,32 +104,27 @@ extension PokemonsViewController: PokemonView {
             return PokemonTableViewCellController(pokemon: pokemon)
         }
         
-        let tableView = PokemonTableView()
-        
         self.tableViewDataSource = PokemonDataSource(tableView: tableView, getPokemons: { closure in
             closure(controllers)
         })
-        
         tableView.dataSource = tableViewDataSource
-        setConstraintsFor(for: tableView, multipliyer: 1)
     }
 }
 
 extension PokemonsViewController: PokedexFeature.PokemonErrorView {
     func display(_ viewModel: PokemonErrorViewModel) {
-        guard let infoView = PokemonErrorView().loadFromNib() else {
-            fatalError("The ErrorStateView should be loaded from NIB")
+        guard let errorMessage = viewModel.message else {
+            errorView.isHidden = true
+            return
         }
         
-        infoView.retryButtonTappedCompletion = { [unowned self] _ in
-            self.refresh()
-        }
-        
-        setConstraintsFor(for: infoView)
+        errorView.isHidden = false
+        errorView.detailTilte.text = errorMessage
     }
 }
 
 extension PokemonsViewController: PokemonLoadingView {
     func display(_ isLoading: Bool) {
+        activityIndicator.isHidden = !isLoading
     }
 }
