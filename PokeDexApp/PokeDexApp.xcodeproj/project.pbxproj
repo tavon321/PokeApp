@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DCA96E592507D3A400579CC8 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA96E582507D3A400579CC8 /* HomeTabViewController.swift */; };
 		DCF011BA250708FC006A943A /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF011B9250708FC006A943A /* HomeNavViewController.swift */; };
 		DCFFF1EF2507001900C3E436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1EE2507001900C3E436 /* AppDelegate.swift */; };
 		DCFFF1F12507001900C3E436 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1F02507001900C3E436 /* SceneDelegate.swift */; };
-		DCFFF1F32507001900C3E436 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1F22507001900C3E436 /* FirstViewController.swift */; };
-		DCFFF1F52507001900C3E436 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1F42507001900C3E436 /* SecondViewController.swift */; };
+		DCFFF1F32507001900C3E436 /* PokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1F22507001900C3E436 /* PokemonsViewController.swift */; };
 		DCFFF1F82507001900C3E436 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF1F62507001900C3E436 /* Home.storyboard */; };
 		DCFFF1FA2507001A00C3E436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF1F92507001A00C3E436 /* Assets.xcassets */; };
 		DCFFF1FD2507001A00C3E436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF1FB2507001A00C3E436 /* LaunchScreen.storyboard */; };
@@ -33,12 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DCA96E582507D3A400579CC8 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		DCF011B9250708FC006A943A /* HomeNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		DCFFF1EB2507001900C3E436 /* PokeDexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFFF1EE2507001900C3E436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCFFF1F02507001900C3E436 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DCFFF1F22507001900C3E436 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DCFFF1F42507001900C3E436 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DCFFF1F22507001900C3E436 /* PokemonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsViewController.swift; sourceTree = "<group>"; };
 		DCFFF1F72507001900C3E436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		DCFFF1F92507001A00C3E436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCFFF1FC2507001A00C3E436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 			children = (
 				DCFFF1F62507001900C3E436 /* Home.storyboard */,
 				DCF011B9250708FC006A943A /* HomeNavViewController.swift */,
-				DCFFF1F22507001900C3E436 /* FirstViewController.swift */,
-				DCFFF1F42507001900C3E436 /* SecondViewController.swift */,
+				DCA96E582507D3A400579CC8 /* HomeTabViewController.swift */,
+				DCFFF1F22507001900C3E436 /* PokemonsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -259,12 +259,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCFFF1F52507001900C3E436 /* SecondViewController.swift in Sources */,
-				DCFFF1F32507001900C3E436 /* FirstViewController.swift in Sources */,
+				DCFFF1F32507001900C3E436 /* PokemonsViewController.swift in Sources */,
 				DCFFF24F250706FD00C3E436 /* Storyboard+instanitate.swift in Sources */,
 				DCF011BA250708FC006A943A /* HomeNavViewController.swift in Sources */,
 				DCFFF2492507064700C3E436 /* SplashViewController.swift in Sources */,
 				DCFFF2452507048900C3E436 /* GradientView.swift in Sources */,
+				DCA96E592507D3A400579CC8 /* HomeTabViewController.swift in Sources */,
 				DCFFF1EF2507001900C3E436 /* AppDelegate.swift in Sources */,
 				DCFFF1F12507001900C3E436 /* SceneDelegate.swift in Sources */,
 			);

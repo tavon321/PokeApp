@@ -14,7 +14,21 @@
                     <view key="view" contentMode="scaleToFill" id="m8t-gf-clt" customClass="GradientView" customModule="PokeDexApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="IL8-FD-IVU">
+                                <rect key="frame" x="160.5" y="401.5" width="93" height="93"/>
+                                <color key="tintColor" red="0.43137254899999999" green="0.63529411759999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="Dkg-eV-vWY"/>
+                                    <constraint firstAttribute="height" constant="93" id="fWA-4F-qvs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IL8-FD-IVU" firstAttribute="centerY" secondItem="m8t-gf-clt" secondAttribute="centerY" id="f2c-Bq-1V9"/>
+                            <constraint firstItem="IL8-FD-IVU" firstAttribute="centerX" secondItem="m8t-gf-clt" secondAttribute="centerX" id="pTa-9Y-0fo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2B6-st-NZ9"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="vertical" value="NO"/>
@@ -38,4 +52,7 @@
             <point key="canvasLocation" x="138" y="101"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pokeball" width="170.66667175292969" height="170.66667175292969"/>
+    </resources>
 </document>

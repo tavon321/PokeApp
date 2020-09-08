@@ -14,9 +14,8 @@ final class SplashViewController: UIViewController, Storyboarded {
         super.viewDidAppear(animated)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            guard let self = self, let homeViewController = HomeNavViewController.instantiate(with: .homeStoryboard) else { return }
-            homeViewController.modalPresentationStyle = .overFullScreen
-            self.present(homeViewController, animated: true)
+            guard let self = self else { return }
+            self.navigationController?.pushViewController(HomeTabViewController(), animated: true)
         }
     }
 }
