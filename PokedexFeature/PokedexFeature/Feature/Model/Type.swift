@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct Type: Equatable {
-    var name: String
+public struct Type: Equatable {
+    public var name: String
+    
+    public init(name: String) {
+        self.name = name
+    }
 }

@@ -9,9 +9,15 @@
 import Foundation
 
 public struct PokemonDetail: Equatable {
-    var id: String
-    var name: String
-    var types: [Type]
-    var order: String
-    var image: URL
+    public var id: String
+    public var name: String
+    public var types: [Type]
+    public var image: URL
+    
+    public init(id: String, name: String, types: [Type]) {
+        self.id = id
+        self.name = name
+        self.types = types
+        self.image = URL(string: "https://pokeres.bastionbot.org/images/pokemon/\(id).png")!
+    }
 }

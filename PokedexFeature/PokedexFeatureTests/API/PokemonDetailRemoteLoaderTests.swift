@@ -49,8 +49,32 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
         }
     }
     
+    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONItems() {
+        let (sut, client) = createSUT()
+        let item = makeItem()
+        
+        expect(sut: sut, toCompleteWith: .success(item.model)) {
+            let data = self.makeItemJson(item.json)
+            client.complete(withStatusCode: 200, data: data)
+        }
+    }
+    
     // MARK: Helpers
     private var anyURL: URL { return URL(string: "https://a-url.com")! }
+    
+    private func makeItemJson(_ item: [String: Any]) -> Data {
+        return try! JSONSerialization.data(withJSONObject: item)
+    }
+    
+    private func makeItem() -> (model: PokemonDetail, json: [String: Any]) {
+        let type = Type(name: "a type")
+        let item = PokemonDetail(id: "1", name: "a name", types: [type])
+        let json: [String : Any] = ["id": item.id,
+                                    "name": item.name,
+                                    "types": [["name": type.name]]]
+        
+        return (model: item, json: json)
+    }
     
     private func createSUT(file: StaticString = #file, line: UInt = #line) -> (sut: PokemonDetailRemoteLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
