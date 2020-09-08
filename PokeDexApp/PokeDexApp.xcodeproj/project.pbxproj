@@ -7,50 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DCFFF21F250700FB00C3E436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF21E250700FB00C3E436 /* AppDelegate.swift */; };
-		DCFFF221250700FB00C3E436 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF220250700FB00C3E436 /* SceneDelegate.swift */; };
-		DCFFF223250700FB00C3E436 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF222250700FB00C3E436 /* FirstViewController.swift */; };
-		DCFFF225250700FB00C3E436 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF224250700FB00C3E436 /* SecondViewController.swift */; };
-		DCFFF228250700FB00C3E436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF226250700FB00C3E436 /* Main.storyboard */; };
-		DCFFF22A250700FC00C3E436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF229250700FC00C3E436 /* Assets.xcassets */; };
-		DCFFF22D250700FC00C3E436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF22B250700FC00C3E436 /* LaunchScreen.storyboard */; };
-		DCFFF238250700FD00C3E436 /* PokeDexAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF237250700FD00C3E436 /* PokeDexAppTests.swift */; };
+		DCF011BA250708FC006A943A /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF011B9250708FC006A943A /* HomeNavViewController.swift */; };
+		DCFFF1EF2507001900C3E436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1EE2507001900C3E436 /* AppDelegate.swift */; };
+		DCFFF1F12507001900C3E436 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1F02507001900C3E436 /* SceneDelegate.swift */; };
+		DCFFF1F32507001900C3E436 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1F22507001900C3E436 /* FirstViewController.swift */; };
+		DCFFF1F52507001900C3E436 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1F42507001900C3E436 /* SecondViewController.swift */; };
+		DCFFF1F82507001900C3E436 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF1F62507001900C3E436 /* Home.storyboard */; };
+		DCFFF1FA2507001A00C3E436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF1F92507001A00C3E436 /* Assets.xcassets */; };
+		DCFFF1FD2507001A00C3E436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF1FB2507001A00C3E436 /* LaunchScreen.storyboard */; };
+		DCFFF2082507001A00C3E436 /* PokeDexAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF2072507001A00C3E436 /* PokeDexAppTests.swift */; };
+		DCFFF2452507048900C3E436 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF2442507048900C3E436 /* GradientView.swift */; };
+		DCFFF2492507064700C3E436 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF2482507064700C3E436 /* SplashViewController.swift */; };
+		DCFFF24B2507065900C3E436 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFFF24A2507065900C3E436 /* Splash.storyboard */; };
+		DCFFF24F250706FD00C3E436 /* Storyboard+instanitate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF24E250706FD00C3E436 /* Storyboard+instanitate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DCFFF234250700FD00C3E436 /* PBXContainerItemProxy */ = {
+		DCFFF2042507001A00C3E436 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DCFFF213250700FB00C3E436 /* Project object */;
+			containerPortal = DCFFF1E32507001900C3E436 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DCFFF21A250700FB00C3E436;
+			remoteGlobalIDString = DCFFF1EA2507001900C3E436;
 			remoteInfo = PokeDexApp;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DCFFF21B250700FB00C3E436 /* PokeDexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCFFF21E250700FB00C3E436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCFFF220250700FB00C3E436 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DCFFF222250700FB00C3E436 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DCFFF224250700FB00C3E436 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		DCFFF227250700FB00C3E436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DCFFF229250700FC00C3E436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DCFFF22C250700FC00C3E436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DCFFF22E250700FC00C3E436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCFFF233250700FD00C3E436 /* PokeDexAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeDexAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCFFF237250700FD00C3E436 /* PokeDexAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexAppTests.swift; sourceTree = "<group>"; };
-		DCFFF239250700FD00C3E436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCF011B9250708FC006A943A /* HomeNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
+		DCFFF1EB2507001900C3E436 /* PokeDexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCFFF1EE2507001900C3E436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DCFFF1F02507001900C3E436 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DCFFF1F22507001900C3E436 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DCFFF1F42507001900C3E436 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DCFFF1F72507001900C3E436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		DCFFF1F92507001A00C3E436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCFFF1FC2507001A00C3E436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DCFFF1FE2507001A00C3E436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCFFF2032507001A00C3E436 /* PokeDexAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeDexAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCFFF2072507001A00C3E436 /* PokeDexAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexAppTests.swift; sourceTree = "<group>"; };
+		DCFFF2092507001A00C3E436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCFFF2442507048900C3E436 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		DCFFF2482507064700C3E436 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		DCFFF24A2507065900C3E436 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		DCFFF24E250706FD00C3E436 /* Storyboard+instanitate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+instanitate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DCFFF218250700FB00C3E436 /* Frameworks */ = {
+		DCFFF1E82507001900C3E436 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCFFF230250700FD00C3E436 /* Frameworks */ = {
+		DCFFF2002507001A00C3E436 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,58 +70,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DCFFF212250700FB00C3E436 = {
+		DCFFF1E22507001900C3E436 = {
 			isa = PBXGroup;
 			children = (
-				DCFFF21D250700FB00C3E436 /* PokeDexApp */,
-				DCFFF236250700FD00C3E436 /* PokeDexAppTests */,
-				DCFFF21C250700FB00C3E436 /* Products */,
+				DCFFF1ED2507001900C3E436 /* PokeDexApp */,
+				DCFFF2062507001A00C3E436 /* PokeDexAppTests */,
+				DCFFF1EC2507001900C3E436 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DCFFF21C250700FB00C3E436 /* Products */ = {
+		DCFFF1EC2507001900C3E436 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCFFF21B250700FB00C3E436 /* PokeDexApp.app */,
-				DCFFF233250700FD00C3E436 /* PokeDexAppTests.xctest */,
+				DCFFF1EB2507001900C3E436 /* PokeDexApp.app */,
+				DCFFF2032507001A00C3E436 /* PokeDexAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DCFFF21D250700FB00C3E436 /* PokeDexApp */ = {
+		DCFFF1ED2507001900C3E436 /* PokeDexApp */ = {
 			isa = PBXGroup;
 			children = (
-				DCFFF21E250700FB00C3E436 /* AppDelegate.swift */,
-				DCFFF220250700FB00C3E436 /* SceneDelegate.swift */,
-				DCFFF222250700FB00C3E436 /* FirstViewController.swift */,
-				DCFFF224250700FB00C3E436 /* SecondViewController.swift */,
-				DCFFF226250700FB00C3E436 /* Main.storyboard */,
-				DCFFF229250700FC00C3E436 /* Assets.xcassets */,
-				DCFFF22B250700FC00C3E436 /* LaunchScreen.storyboard */,
-				DCFFF22E250700FC00C3E436 /* Info.plist */,
+				DCFFF2432507022C00C3E436 /* View */,
+				DCFFF2422507021F00C3E436 /* Delegate */,
+				DCFFF1F92507001A00C3E436 /* Assets.xcassets */,
+				DCFFF1FB2507001A00C3E436 /* LaunchScreen.storyboard */,
+				DCFFF1FE2507001A00C3E436 /* Info.plist */,
 			);
 			path = PokeDexApp;
 			sourceTree = "<group>";
 		};
-		DCFFF236250700FD00C3E436 /* PokeDexAppTests */ = {
+		DCFFF2062507001A00C3E436 /* PokeDexAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				DCFFF237250700FD00C3E436 /* PokeDexAppTests.swift */,
-				DCFFF239250700FD00C3E436 /* Info.plist */,
+				DCFFF2072507001A00C3E436 /* PokeDexAppTests.swift */,
+				DCFFF2092507001A00C3E436 /* Info.plist */,
 			);
 			path = PokeDexAppTests;
+			sourceTree = "<group>";
+		};
+		DCFFF2422507021F00C3E436 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				DCFFF1EE2507001900C3E436 /* AppDelegate.swift */,
+				DCFFF1F02507001900C3E436 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		DCFFF2432507022C00C3E436 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DCFFF24D250706EA00C3E436 /* Helpers */,
+				DCFFF2502507072700C3E436 /* Home */,
+				DCFFF24C2507065E00C3E436 /* Splash */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DCFFF24C2507065E00C3E436 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				DCFFF24A2507065900C3E436 /* Splash.storyboard */,
+				DCFFF2482507064700C3E436 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		DCFFF24D250706EA00C3E436 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DCFFF2442507048900C3E436 /* GradientView.swift */,
+				DCFFF24E250706FD00C3E436 /* Storyboard+instanitate.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DCFFF2502507072700C3E436 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DCFFF1F62507001900C3E436 /* Home.storyboard */,
+				DCF011B9250708FC006A943A /* HomeNavViewController.swift */,
+				DCFFF1F22507001900C3E436 /* FirstViewController.swift */,
+				DCFFF1F42507001900C3E436 /* SecondViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DCFFF21A250700FB00C3E436 /* PokeDexApp */ = {
+		DCFFF1EA2507001900C3E436 /* PokeDexApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCFFF23C250700FD00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexApp" */;
+			buildConfigurationList = DCFFF20C2507001A00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexApp" */;
 			buildPhases = (
-				DCFFF217250700FB00C3E436 /* Sources */,
-				DCFFF218250700FB00C3E436 /* Frameworks */,
-				DCFFF219250700FB00C3E436 /* Resources */,
+				DCFFF1E72507001900C3E436 /* Sources */,
+				DCFFF1E82507001900C3E436 /* Frameworks */,
+				DCFFF1E92507001900C3E436 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -119,47 +174,47 @@
 			);
 			name = PokeDexApp;
 			productName = PokeDexApp;
-			productReference = DCFFF21B250700FB00C3E436 /* PokeDexApp.app */;
+			productReference = DCFFF1EB2507001900C3E436 /* PokeDexApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DCFFF232250700FD00C3E436 /* PokeDexAppTests */ = {
+		DCFFF2022507001A00C3E436 /* PokeDexAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCFFF23F250700FD00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexAppTests" */;
+			buildConfigurationList = DCFFF20F2507001A00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexAppTests" */;
 			buildPhases = (
-				DCFFF22F250700FD00C3E436 /* Sources */,
-				DCFFF230250700FD00C3E436 /* Frameworks */,
-				DCFFF231250700FD00C3E436 /* Resources */,
+				DCFFF1FF2507001A00C3E436 /* Sources */,
+				DCFFF2002507001A00C3E436 /* Frameworks */,
+				DCFFF2012507001A00C3E436 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DCFFF235250700FD00C3E436 /* PBXTargetDependency */,
+				DCFFF2052507001A00C3E436 /* PBXTargetDependency */,
 			);
 			name = PokeDexAppTests;
 			productName = PokeDexAppTests;
-			productReference = DCFFF233250700FD00C3E436 /* PokeDexAppTests.xctest */;
+			productReference = DCFFF2032507001A00C3E436 /* PokeDexAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DCFFF213250700FB00C3E436 /* Project object */ = {
+		DCFFF1E32507001900C3E436 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Gustavo Londono";
 				TargetAttributes = {
-					DCFFF21A250700FB00C3E436 = {
+					DCFFF1EA2507001900C3E436 = {
 						CreatedOnToolsVersion = 11.6;
 					};
-					DCFFF232250700FD00C3E436 = {
+					DCFFF2022507001A00C3E436 = {
 						CreatedOnToolsVersion = 11.6;
-						TestTargetID = DCFFF21A250700FB00C3E436;
+						TestTargetID = DCFFF1EA2507001900C3E436;
 					};
 				};
 			};
-			buildConfigurationList = DCFFF216250700FB00C3E436 /* Build configuration list for PBXProject "PokeDexApp" */;
+			buildConfigurationList = DCFFF1E62507001900C3E436 /* Build configuration list for PBXProject "PokeDexApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -167,29 +222,30 @@
 				en,
 				Base,
 			);
-			mainGroup = DCFFF212250700FB00C3E436;
-			productRefGroup = DCFFF21C250700FB00C3E436 /* Products */;
+			mainGroup = DCFFF1E22507001900C3E436;
+			productRefGroup = DCFFF1EC2507001900C3E436 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DCFFF21A250700FB00C3E436 /* PokeDexApp */,
-				DCFFF232250700FD00C3E436 /* PokeDexAppTests */,
+				DCFFF1EA2507001900C3E436 /* PokeDexApp */,
+				DCFFF2022507001A00C3E436 /* PokeDexAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DCFFF219250700FB00C3E436 /* Resources */ = {
+		DCFFF1E92507001900C3E436 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCFFF22D250700FC00C3E436 /* LaunchScreen.storyboard in Resources */,
-				DCFFF22A250700FC00C3E436 /* Assets.xcassets in Resources */,
-				DCFFF228250700FB00C3E436 /* Main.storyboard in Resources */,
+				DCFFF1FD2507001A00C3E436 /* LaunchScreen.storyboard in Resources */,
+				DCFFF1FA2507001A00C3E436 /* Assets.xcassets in Resources */,
+				DCFFF24B2507065900C3E436 /* Splash.storyboard in Resources */,
+				DCFFF1F82507001900C3E436 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCFFF231250700FD00C3E436 /* Resources */ = {
+		DCFFF2012507001A00C3E436 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -199,48 +255,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DCFFF217250700FB00C3E436 /* Sources */ = {
+		DCFFF1E72507001900C3E436 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCFFF225250700FB00C3E436 /* SecondViewController.swift in Sources */,
-				DCFFF223250700FB00C3E436 /* FirstViewController.swift in Sources */,
-				DCFFF21F250700FB00C3E436 /* AppDelegate.swift in Sources */,
-				DCFFF221250700FB00C3E436 /* SceneDelegate.swift in Sources */,
+				DCFFF1F52507001900C3E436 /* SecondViewController.swift in Sources */,
+				DCFFF1F32507001900C3E436 /* FirstViewController.swift in Sources */,
+				DCFFF24F250706FD00C3E436 /* Storyboard+instanitate.swift in Sources */,
+				DCF011BA250708FC006A943A /* HomeNavViewController.swift in Sources */,
+				DCFFF2492507064700C3E436 /* SplashViewController.swift in Sources */,
+				DCFFF2452507048900C3E436 /* GradientView.swift in Sources */,
+				DCFFF1EF2507001900C3E436 /* AppDelegate.swift in Sources */,
+				DCFFF1F12507001900C3E436 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCFFF22F250700FD00C3E436 /* Sources */ = {
+		DCFFF1FF2507001A00C3E436 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCFFF238250700FD00C3E436 /* PokeDexAppTests.swift in Sources */,
+				DCFFF2082507001A00C3E436 /* PokeDexAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DCFFF235250700FD00C3E436 /* PBXTargetDependency */ = {
+		DCFFF2052507001A00C3E436 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DCFFF21A250700FB00C3E436 /* PokeDexApp */;
-			targetProxy = DCFFF234250700FD00C3E436 /* PBXContainerItemProxy */;
+			target = DCFFF1EA2507001900C3E436 /* PokeDexApp */;
+			targetProxy = DCFFF2042507001A00C3E436 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DCFFF226250700FB00C3E436 /* Main.storyboard */ = {
+		DCFFF1F62507001900C3E436 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DCFFF227250700FB00C3E436 /* Base */,
+				DCFFF1F72507001900C3E436 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
-		DCFFF22B250700FC00C3E436 /* LaunchScreen.storyboard */ = {
+		DCFFF1FB2507001A00C3E436 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DCFFF22C250700FC00C3E436 /* Base */,
+				DCFFF1FC2507001A00C3E436 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -248,7 +308,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DCFFF23A250700FD00C3E436 /* Debug */ = {
+		DCFFF20A2507001A00C3E436 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -308,7 +368,7 @@
 			};
 			name = Debug;
 		};
-		DCFFF23B250700FD00C3E436 /* Release */ = {
+		DCFFF20B2507001A00C3E436 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -362,7 +422,7 @@
 			};
 			name = Release;
 		};
-		DCFFF23D250700FD00C3E436 /* Debug */ = {
+		DCFFF20D2507001A00C3E436 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -380,7 +440,7 @@
 			};
 			name = Debug;
 		};
-		DCFFF23E250700FD00C3E436 /* Release */ = {
+		DCFFF20E2507001A00C3E436 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -398,7 +458,7 @@
 			};
 			name = Release;
 		};
-		DCFFF240250700FD00C3E436 /* Debug */ = {
+		DCFFF2102507001A00C3E436 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -420,7 +480,7 @@
 			};
 			name = Debug;
 		};
-		DCFFF241250700FD00C3E436 /* Release */ = {
+		DCFFF2112507001A00C3E436 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -445,34 +505,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DCFFF216250700FB00C3E436 /* Build configuration list for PBXProject "PokeDexApp" */ = {
+		DCFFF1E62507001900C3E436 /* Build configuration list for PBXProject "PokeDexApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DCFFF23A250700FD00C3E436 /* Debug */,
-				DCFFF23B250700FD00C3E436 /* Release */,
+				DCFFF20A2507001A00C3E436 /* Debug */,
+				DCFFF20B2507001A00C3E436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCFFF23C250700FD00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexApp" */ = {
+		DCFFF20C2507001A00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DCFFF23D250700FD00C3E436 /* Debug */,
-				DCFFF23E250700FD00C3E436 /* Release */,
+				DCFFF20D2507001A00C3E436 /* Debug */,
+				DCFFF20E2507001A00C3E436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCFFF23F250700FD00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexAppTests" */ = {
+		DCFFF20F2507001A00C3E436 /* Build configuration list for PBXNativeTarget "PokeDexAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DCFFF240250700FD00C3E436 /* Debug */,
-				DCFFF241250700FD00C3E436 /* Release */,
+				DCFFF2102507001A00C3E436 /* Debug */,
+				DCFFF2112507001A00C3E436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DCFFF213250700FB00C3E436 /* Project object */;
+	rootObject = DCFFF1E32507001900C3E436 /* Project object */;
 }

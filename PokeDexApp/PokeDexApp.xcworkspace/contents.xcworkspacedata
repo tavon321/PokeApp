@@ -4,7 +4,4 @@
    <FileRef
       location = "group:../PokedexFeature/PokedexFeature.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "container:../../../.Trash/PokeDexApp 6.56.34 PM/PokeDexApp.xcodeproj">
-   </FileRef>
 </Workspace>

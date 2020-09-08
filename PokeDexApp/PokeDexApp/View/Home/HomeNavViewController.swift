@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  HomeViewController.swift
 //  PokeDexApp
 //
 //  Created by Gustavo Londono on 9/7/20.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class HomeNavViewController: UINavigationController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
