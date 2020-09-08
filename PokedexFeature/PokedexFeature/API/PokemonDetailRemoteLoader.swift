@@ -21,7 +21,8 @@ public class PokemonDetailRemoteLoader: PokemonDetailLoader {
     }
     
     public func loadDetail(with url: URL, completion: @escaping (PokemonDetailLoader.Result) -> Void) {
-        client.get(from: url) { result in
+        client.get(from: url) { [weak self] result in
+            guard self != nil else { return }
             switch result {
             case .success((let response, let data)):
                 completion(PokemonDetailMapper.map(response: response, data: data))

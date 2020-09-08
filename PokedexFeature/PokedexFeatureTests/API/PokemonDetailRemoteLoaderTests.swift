@@ -49,7 +49,7 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
         }
     }
     
-    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONItems() {
+    func test_load_deliversItemOn200HTTPResponseWithJSONItem() {
         let (sut, client) = createSUT()
         let item = makeItem()
         
@@ -57,6 +57,21 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
             let data = self.makeItemJson(item.json)
             client.complete(withStatusCode: 200, data: data)
         }
+    }
+    
+    func test_laod_doesNotDeliverResultOnSUTDeallocation() {
+        let client = HTTPClientSpy()
+        var sut: PokemonDetailRemoteLoader? = PokemonDetailRemoteLoader(client: client)
+        
+        var capturedResult: PokemonDetailLoader.Result?
+        sut!.loadDetail(with: anyURL) { result in
+            capturedResult = result
+        }
+        
+        sut = nil
+        client.complete(withStatusCode: 200, data: Data())
+        
+        XCTAssertNil(capturedResult)
     }
     
     // MARK: Helpers
