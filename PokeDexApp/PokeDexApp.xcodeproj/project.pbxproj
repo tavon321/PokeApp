@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC43017D2507FDC00094F139 /* String+Uppercase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43017C2507FDC00094F139 /* String+Uppercase.swift */; };
 		DC9950A22507DE0F003C3998 /* PokemonErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950A12507DE0F003C3998 /* PokemonErrorView.swift */; };
 		DC9950A52507DE40003C3998 /* PokemonErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9950A42507DE40003C3998 /* PokemonErrorView.xib */; };
 		DC9950A72507E01B003C3998 /* extension+loadFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC43017C2507FDC00094F139 /* String+Uppercase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Uppercase.swift"; sourceTree = "<group>"; };
 		DC9950A12507DE0F003C3998 /* PokemonErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonErrorView.swift; sourceTree = "<group>"; };
 		DC9950A42507DE40003C3998 /* PokemonErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonErrorView.xib; sourceTree = "<group>"; };
 		DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+loadFromNib.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC43017E2507FDCE0094F139 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DC9950B52507FBD5003C3998 /* WeakRefVirtualProxy.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		DC9950A32507DE2E003C3998 /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		DCA96E5A2507D69100579CC8 /* DependencyManagar */ = {
 			isa = PBXGroup;
 			children = (
+				DC43017E2507FDCE0094F139 /* Helpers */,
 				DCA96E5B2507D6AF00579CC8 /* HomeDependencyManager.swift */,
 				DCA96E692507DC3E00579CC8 /* PokemonUIComposer.swift */,
 			);
@@ -241,7 +252,7 @@
 				DCFFF24E250706FD00C3E436 /* Storyboard+instanitate.swift */,
 				DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */,
 				DC9950AF2507EA49003C3998 /* UITableView+Register.swift */,
-				DC9950B52507FBD5003C3998 /* WeakRefVirtualProxy.swift */,
+				DC43017C2507FDC00094F139 /* String+Uppercase.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -381,6 +392,7 @@
 				DCFFF1F12507001900C3E436 /* SceneDelegate.swift in Sources */,
 				DCA96E6A2507DC3E00579CC8 /* PokemonUIComposer.swift in Sources */,
 				DC9950A22507DE0F003C3998 /* PokemonErrorView.swift in Sources */,
+				DC43017D2507FDC00094F139 /* String+Uppercase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
