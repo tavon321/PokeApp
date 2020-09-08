@@ -97,6 +97,9 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon" id="J0S-bf-mQl"/>
+                    <connections>
+                        <outlet property="containerView" destination="T6O-vq-fpV" id="xA0-4a-sbg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
