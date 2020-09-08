@@ -14,6 +14,7 @@ class PokemonDetailRemoteLoader: PokemonDetailLoader {
     
     enum Error: Swift.Error {
         case connectivity
+        case invalidData
     }
 
     init(client: HTTPClient) {
@@ -23,9 +24,14 @@ class PokemonDetailRemoteLoader: PokemonDetailLoader {
     func loadDetail(with url: URL, completion: @escaping (PokemonDetailLoader.Result) -> Void) {
         client.get(from: url) { result in
             switch result {
+            case .success((let response, let data)):
+                guard response.statusCode != 200 else {
+                    return
+                }
+                
+                completion(.failure(Error.invalidData))
             case .failure:
                 completion(.failure(Error.connectivity))
-            default: break
             }
         }
     }
@@ -55,6 +61,19 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
         expect(sut: sut, toCompleteWith: .failure(.connectivity)) {
             let expectedError = NSError(domain: "an error", code: 0)
             client.complete(with: expectedError)
+        }
+    }
+    
+    func test_load_deliversInvalidDataErrorOnNon200HttpRespone() {
+        let (sut, client) = createSUT()
+
+        let samples = [199, 201, 300, 400, 500].enumerated()
+
+        samples.forEach { index, code in
+            expect(sut: sut, toCompleteWith: .failure(.invalidData)) {
+                let data = Data("".utf8)
+                client.complete(withStatusCode: code, data: data, at: index)
+            }
         }
     }
     
