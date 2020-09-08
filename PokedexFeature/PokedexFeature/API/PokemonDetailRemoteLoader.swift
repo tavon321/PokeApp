@@ -24,7 +24,7 @@ public class PokemonDetailRemoteLoader: PokemonDetailLoader {
         client.get(from: url) { result in
             switch result {
             case .success((let response, let data)):
-                guard response.statusCode != 200 else {
+                guard !response.isOK else {
                     return
                 }
                 

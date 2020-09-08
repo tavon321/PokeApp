@@ -10,8 +10,6 @@ import Foundation
 
 struct PokemonMapper {
     
-    private static var OK_200: Int { return 200 }
-    
     private struct Root: Decodable {
         private var results: [RemotePokemon]
         
@@ -30,7 +28,7 @@ struct PokemonMapper {
     }
     
     static func map(httpResponse: HTTPURLResponse, data: Data) -> PokemonLoader.Result {
-        guard httpResponse.statusCode == OK_200, let root = try? JSONDecoder().decode(Root.self, from: data) else {
+        guard httpResponse.isOK, let root = try? JSONDecoder().decode(Root.self, from: data) else {
             return .failure(PokemonRemoteLoader.Error.invalidData)
         }
         
