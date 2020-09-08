@@ -1,5 +1,5 @@
 //
-//  PokedexAPIEndToEndTests.swift
+//  PokedexLoadPokemonEndToEndTests.swift
 //  PokedexFeatureTestsEndToEnd
 //
 //  Created by Gustavo Londono on 9/7/20.
@@ -9,8 +9,8 @@
 import XCTest
 import PokedexFeature
 
-class PokedexAPIEndToEndTests: XCTestCase {
-
+class PokedexLoadPokemonEndToEndTests: XCTestCase {
+    
     func test_endToEndTestGetBurgerResult_matchesFixedTestAccountData() {
         switch getBurgerResult() {
         case .success(let pokemons):
@@ -22,8 +22,7 @@ class PokedexAPIEndToEndTests: XCTestCase {
         }
     }
     
-    // MARK: - Helpers
-    private func getBurgerResult() -> PokemonLoader.Result? {
+    private func getPokemonResult() -> PokemonLoader.Result? {
         let testServerURL = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=3")!
         let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let loader = PokemonRemoteLoader(url: testServerURL, client: client)
@@ -44,6 +43,7 @@ class PokedexAPIEndToEndTests: XCTestCase {
         return captureResult
     }
     
+    // MARK: - Helpers
     private func expectedItem(at index: Int) -> Pokemon {
         return Pokemon(name: name(at: index), url: url(at: index))
     }
@@ -57,5 +57,5 @@ class PokedexAPIEndToEndTests: XCTestCase {
                 URL(string: "https://pokeapi.co/api/v2/pokemon/2/")!,
                 URL(string: "https://pokeapi.co/api/v2/pokemon/3/")!][index]
     }
-
+    
 }
