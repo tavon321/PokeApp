@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct Type {
+struct Type: Decodable {
     var name: String
-    var url: URL
 }
