@@ -9,34 +9,6 @@
 import XCTest
 import PokedexFeature
 
-class PokemonDetailRemoteLoader: PokemonDetailLoader {
-    private let client: HTTPClient
-    
-    enum Error: Swift.Error {
-        case connectivity
-        case invalidData
-    }
-
-    init(client: HTTPClient) {
-        self.client = client
-    }
-    
-    func loadDetail(with url: URL, completion: @escaping (PokemonDetailLoader.Result) -> Void) {
-        client.get(from: url) { result in
-            switch result {
-            case .success((let response, let data)):
-                guard response.statusCode != 200 else {
-                    return
-                }
-                
-                completion(.failure(Error.invalidData))
-            case .failure:
-                completion(.failure(Error.connectivity))
-            }
-        }
-    }
-}
-
 class PokemonDetailRemoteLoaderTests: XCTestCase {
     
     func test_init_doesNotRequestFromURL() {
