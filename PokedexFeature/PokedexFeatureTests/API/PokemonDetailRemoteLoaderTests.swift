@@ -11,13 +11,22 @@ import PokedexFeature
 
 class PokemonDetailRemoteLoader: PokemonDetailLoader {
     private let client: HTTPClient
+    
+    enum Error: Swift.Error {
+        case connectivity
+    }
 
     init(client: HTTPClient) {
         self.client = client
     }
     
     func loadDetail(with url: URL, completion: @escaping (PokemonDetailLoader.Result) -> Void) {
-        client.get(from: url) { _ in
+        client.get(from: url) { result in
+            switch result {
+            case .failure:
+                completion(.failure(Error.connectivity))
+            default: break
+            }
         }
     }
 }
@@ -40,7 +49,15 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
         XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
     }
     
-
+    func test_loadDetail_deliversConnectivityErrorOnClientError() {
+        let (sut, client) = createSUT()
+        
+        expect(sut: sut, toCompleteWith: .failure(.connectivity)) {
+            let expectedError = NSError(domain: "an error", code: 0)
+            client.complete(with: expectedError)
+        }
+    }
+    
     // MARK: Helpers
     private var anyURL: URL { return URL(string: "https://a-url.com")! }
     
@@ -52,6 +69,31 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         
         return (sut: sut, client: client)
+    }
+    
+    private func expect(sut: PokemonDetailRemoteLoader,
+                        toCompleteWith expectedResult: Result<PokemonDetail, PokemonDetailRemoteLoader.Error>,
+                        file: StaticString = #file,
+                        line: UInt = #line,
+                        when action: () -> Void) {
+        let exp = expectation(description: "Wait for result")
+        
+        sut.loadDetail(with: anyURL) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedItem), .success(expectedItem)):
+                XCTAssertEqual(receivedItem, expectedItem)
+            case let (.failure(receivedError as PokemonDetailRemoteLoader.Error), .failure(expectedError)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        action()
+        
+        wait(for: [exp], timeout: 0.1)
     }
     
     class HTTPClientSpy: HTTPClient {

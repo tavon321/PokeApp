@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Type: Decodable {
+struct Type: Equatable {
     var name: String
 }

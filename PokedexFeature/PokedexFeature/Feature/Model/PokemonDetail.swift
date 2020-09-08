@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PokemonDetail: Decodable {
+public struct PokemonDetail: Equatable {
     var id: String
     var name: String
     var types: [Type]
