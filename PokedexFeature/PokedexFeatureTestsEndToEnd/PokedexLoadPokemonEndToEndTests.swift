@@ -11,8 +11,8 @@ import PokedexFeature
 
 class PokedexLoadPokemonEndToEndTests: XCTestCase {
     
-    func test_endToEndTestGetBurgerResult_matchesFixedTestAccountData() {
-        switch getBurgerResult() {
+    func test_endToEndTestGetPokemonResult_matchesFixedTestAccountData() {
+        switch getPokemonResult() {
         case .success(let pokemons):
             pokemons.enumerated().forEach { (index, receivedBurger) in
                 XCTAssertEqual(receivedBurger, expectedItem(at: index))

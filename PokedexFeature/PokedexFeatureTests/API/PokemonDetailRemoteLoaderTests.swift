@@ -84,9 +84,9 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
     private func makeItem() -> (model: PokemonDetail, json: [String: Any]) {
         let type = Type(name: "a type")
         let item = PokemonDetail(id: "1", name: "a name", types: [type])
-        let json: [String : Any] = ["id": item.id,
+        let json: [String : Any] = ["id": Int(item.id)!,
                                     "name": item.name,
-                                    "types": [["name": type.name]]]
+                                    "types": [["type": ["name": type.name]]]]
         
         return (model: item, json: json)
     }

@@ -11,19 +11,23 @@ import Foundation
 class PokemonDetailMapper {
     
     private struct RemotePokemonDetail: Decodable {
-        var id: String
+        var id: Int
         var name: String
-        var types: [RemoteType]
+        var types: [RemoteTypeContainer]
         
         var pokemonDetail: PokemonDetail {
-            return PokemonDetail(id: id, name: name, types: types.map({ $0.type }))
+            return PokemonDetail(id: String(id), name: name, types: types.map({ $0.type.type }))
         }
+    }
+   
+    private struct RemoteTypeContainer: Decodable {
+        var type: RemoteType
     }
     
     private struct RemoteType: Decodable {
         var name: String
         
-        var type: Type { return Type(name: name)}
+        var type: Type { return Type(name: name) }
     }
     
     static func map(response: HTTPURLResponse, data: Data) -> PokemonDetailLoader.Result {
