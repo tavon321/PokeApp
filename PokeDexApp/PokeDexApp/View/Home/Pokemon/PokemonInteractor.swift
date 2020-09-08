@@ -36,7 +36,6 @@ final class PokemonInteractor: PokemonViewControllerDelegate {
                 self.presenter?.didFinishLoading(with: error)
             }
         }
-        
     }
     
 }

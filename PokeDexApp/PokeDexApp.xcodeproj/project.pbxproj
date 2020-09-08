@@ -10,6 +10,12 @@
 		DC9950A22507DE0F003C3998 /* PokemonErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950A12507DE0F003C3998 /* PokemonErrorView.swift */; };
 		DC9950A52507DE40003C3998 /* PokemonErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9950A42507DE40003C3998 /* PokemonErrorView.xib */; };
 		DC9950A72507E01B003C3998 /* extension+loadFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */; };
+		DC9950AA2507E16A003C3998 /* PokemonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950A92507E16A003C3998 /* PokemonDataSource.swift */; };
+		DC9950AC2507E253003C3998 /* PokemonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9950AB2507E253003C3998 /* PokemonTableViewCell.xib */; };
+		DC9950AE2507E97C003C3998 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950AD2507E97C003C3998 /* PokemonTableViewCell.swift */; };
+		DC9950B02507EA49003C3998 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950AF2507EA49003C3998 /* UITableView+Register.swift */; };
+		DC9950B22507EA84003C3998 /* PokemonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950B12507EA84003C3998 /* PokemonTableView.swift */; };
+		DC9950B42507EAEF003C3998 /* PokemonTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950B32507EAEF003C3998 /* PokemonTableViewCellController.swift */; };
 		DCA96E592507D3A400579CC8 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA96E582507D3A400579CC8 /* HomeTabViewController.swift */; };
 		DCA96E5C2507D6AF00579CC8 /* HomeDependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA96E5B2507D6AF00579CC8 /* HomeDependencyManager.swift */; };
 		DCA96E632507D97400579CC8 /* PokedexFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA96E622507D97400579CC8 /* PokedexFeature.framework */; };
@@ -58,6 +64,12 @@
 		DC9950A12507DE0F003C3998 /* PokemonErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonErrorView.swift; sourceTree = "<group>"; };
 		DC9950A42507DE40003C3998 /* PokemonErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonErrorView.xib; sourceTree = "<group>"; };
 		DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+loadFromNib.swift"; sourceTree = "<group>"; };
+		DC9950A92507E16A003C3998 /* PokemonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDataSource.swift; sourceTree = "<group>"; };
+		DC9950AB2507E253003C3998 /* PokemonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonTableViewCell.xib; sourceTree = "<group>"; };
+		DC9950AD2507E97C003C3998 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
+		DC9950AF2507EA49003C3998 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		DC9950B12507EA84003C3998 /* PokemonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableView.swift; sourceTree = "<group>"; };
+		DC9950B32507EAEF003C3998 /* PokemonTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCellController.swift; sourceTree = "<group>"; };
 		DCA96E582507D3A400579CC8 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		DCA96E5B2507D6AF00579CC8 /* HomeDependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDependencyManager.swift; sourceTree = "<group>"; };
 		DCA96E5E2507D6F100579CC8 /* PokedexFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokedexFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +122,18 @@
 			path = ErrorView;
 			sourceTree = "<group>";
 		};
+		DC9950A82507E150003C3998 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DC9950A92507E16A003C3998 /* PokemonDataSource.swift */,
+				DC9950AB2507E253003C3998 /* PokemonTableViewCell.xib */,
+				DC9950AD2507E97C003C3998 /* PokemonTableViewCell.swift */,
+				DC9950B12507EA84003C3998 /* PokemonTableView.swift */,
+				DC9950B32507EAEF003C3998 /* PokemonTableViewCellController.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		DCA96E5A2507D69100579CC8 /* DependencyManagar */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +155,7 @@
 		DCA96E662507DB2000579CC8 /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				DC9950A82507E150003C3998 /* TableView */,
 				DC9950A32507DE2E003C3998 /* ErrorView */,
 				DCFFF1F22507001900C3E436 /* PokemonsViewController.swift */,
 				DCA96E672507DB7A00579CC8 /* PokemonInteractor.swift */,
@@ -213,6 +238,7 @@
 				DCFFF2442507048900C3E436 /* GradientView.swift */,
 				DCFFF24E250706FD00C3E436 /* Storyboard+instanitate.swift */,
 				DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */,
+				DC9950AF2507EA49003C3998 /* UITableView+Register.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -311,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFFF1FD2507001A00C3E436 /* LaunchScreen.storyboard in Resources */,
+				DC9950AC2507E253003C3998 /* PokemonTableViewCell.xib in Resources */,
 				DCFFF1FA2507001A00C3E436 /* Assets.xcassets in Resources */,
 				DCFFF24B2507065900C3E436 /* Splash.storyboard in Resources */,
 				DCFFF1F82507001900C3E436 /* Home.storyboard in Resources */,
@@ -335,13 +362,18 @@
 				DCFFF1F32507001900C3E436 /* PokemonsViewController.swift in Sources */,
 				DCFFF24F250706FD00C3E436 /* Storyboard+instanitate.swift in Sources */,
 				DCA96E5C2507D6AF00579CC8 /* HomeDependencyManager.swift in Sources */,
+				DC9950B42507EAEF003C3998 /* PokemonTableViewCellController.swift in Sources */,
+				DC9950AE2507E97C003C3998 /* PokemonTableViewCell.swift in Sources */,
 				DCF011BA250708FC006A943A /* HomeNavViewController.swift in Sources */,
+				DC9950AA2507E16A003C3998 /* PokemonDataSource.swift in Sources */,
+				DC9950B02507EA49003C3998 /* UITableView+Register.swift in Sources */,
 				DCFFF2492507064700C3E436 /* SplashViewController.swift in Sources */,
 				DC9950A72507E01B003C3998 /* extension+loadFromNib.swift in Sources */,
 				DCFFF2452507048900C3E436 /* GradientView.swift in Sources */,
 				DCA96E682507DB7A00579CC8 /* PokemonInteractor.swift in Sources */,
 				DCA96E592507D3A400579CC8 /* HomeTabViewController.swift in Sources */,
 				DCFFF1EF2507001900C3E436 /* AppDelegate.swift in Sources */,
+				DC9950B22507EA84003C3998 /* PokemonTableView.swift in Sources */,
 				DCFFF1F12507001900C3E436 /* SceneDelegate.swift in Sources */,
 				DCA96E6A2507DC3E00579CC8 /* PokemonUIComposer.swift in Sources */,
 				DC9950A22507DE0F003C3998 /* PokemonErrorView.swift in Sources */,

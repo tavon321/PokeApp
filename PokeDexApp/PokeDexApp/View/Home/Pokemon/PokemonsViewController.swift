@@ -15,6 +15,7 @@ final class PokemonsViewController: UIViewController, Storyboarded {
     
     private var searchController: UISearchController!
     private var delegate: PokemonViewControllerDelegate?
+    private var tableViewDataSource: UITableViewDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,12 +66,22 @@ final class PokemonsViewController: UIViewController, Storyboarded {
 
 extension PokemonsViewController: PokemonView {
     func display(_ viewModel: PokemonListViewModel) {
+        let controllers = viewModel.list.compactMap { pokemon in
+            return PokemonTableViewCellController(pokemon: pokemon)
+        }
         
+        let tableView = PokemonTableView()
+        
+        self.tableViewDataSource = PokemonDataSource(tableView: tableView, getPokemons: { closure in
+            closure(controllers)
+        })
+        
+        tableView.dataSource = tableViewDataSource
+        setConstraintsFor(for: tableView, multipliyer: 1)
     }
 }
 
 extension PokemonsViewController: PokedexFeature.PokemonErrorView {
-    
     func display(_ viewModel: PokemonErrorViewModel) {
         guard let infoView = PokemonErrorView().loadFromNib() else {
             fatalError("The ErrorStateView should be loaded from NIB")
