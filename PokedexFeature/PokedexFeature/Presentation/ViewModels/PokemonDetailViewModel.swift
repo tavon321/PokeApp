@@ -11,6 +11,6 @@ import Foundation
 public struct PokemonDetailViewModel<Image> {
     public let name: String
     public let number: String?
-    public let types: (Image, Image?)?
+    public let types: (Image?, Image?)?
     public let image: Image?
 }
