@@ -10,12 +10,17 @@ import UIKit
 
 final class SplashViewController: UIViewController, Storyboarded {
     
+    var dependencyHandler: HomeDependencyManager?
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            guard let self = self else { return }
-            self.navigationController?.pushViewController(HomeTabViewController(), animated: true)
+            guard let self = self, let handler = self.dependencyHandler else { return }
+            let controller = HomeTabViewController()
+            controller.dependencyHandler = handler
+            
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
 }

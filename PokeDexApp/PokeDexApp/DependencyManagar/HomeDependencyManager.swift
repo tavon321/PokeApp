@@ -9,23 +9,13 @@
 import UIKit
 import PokedexFeature
 
-class HomeDependencyManager {
-    
+final class HomeDependencyManager {
     private lazy var httpClient: HTTPClient = {
         URLSessionHTTPClient()
     }()
     
-    private lazy var PokemonLoaderUseCase: PokemonRemoteLoader = {
+    lazy var pokemonLoaderUseCase: PokemonRemoteLoader = {
         let pokemonURL = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=1050")!
         return PokemonRemoteLoader(url: pokemonURL, client: httpClient)
     }()
-
-}
-
-
-public final class PokemonUIComposer {
-    private init() {}
-    
-    
-    
 }

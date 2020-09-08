@@ -11,11 +11,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    private lazy var dependencyHandler: HomeDependencyManager = {
+        return HomeDependencyManager()
+    }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene),
             let splashViewController = SplashViewController.instantiate(with: .splashStoryboard) else { return }
         
+        splashViewController.dependencyHandler = dependencyHandler
         let mainNavController = HomeNavViewController(rootViewController: splashViewController)
         
         let window = UIWindow(windowScene: windowScene)

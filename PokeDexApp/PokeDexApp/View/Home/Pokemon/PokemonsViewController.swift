@@ -17,7 +17,7 @@ final class PokemonsViewController: UIViewController, Storyboarded {
     private var tableViewDataSource: UITableViewDataSource?
     
     // MARK: - Dependencies
-    private var delegate: PokemonViewControllerDelegate?
+    var delegate: PokemonViewControllerDelegate?
     
     // MARK: - Views
     private lazy var errorView: PokemonErrorView = {
@@ -100,6 +100,12 @@ final class PokemonsViewController: UIViewController, Storyboarded {
 
 extension PokemonsViewController: PokemonView {
     func display(_ viewModel: PokemonListViewModel) {
+        DispatchQueue.main.async { [unowned self] in
+            self._display(viewModel)
+        }
+    }
+    
+    func _display(_ viewModel: PokemonListViewModel) {
         let controllers = viewModel.list.compactMap { pokemon in
             return PokemonTableViewCellController(pokemon: pokemon)
         }
@@ -113,6 +119,12 @@ extension PokemonsViewController: PokemonView {
 
 extension PokemonsViewController: PokedexFeature.PokemonErrorView {
     func display(_ viewModel: PokemonErrorViewModel) {
+        DispatchQueue.main.async { [unowned self] in
+            self._display(viewModel)
+        }
+    }
+    
+    func _display(_ viewModel: PokemonErrorViewModel) {
         guard let errorMessage = viewModel.message else {
             errorView.isHidden = true
             return
@@ -125,6 +137,8 @@ extension PokemonsViewController: PokedexFeature.PokemonErrorView {
 
 extension PokemonsViewController: PokemonLoadingView {
     func display(_ isLoading: Bool) {
-        activityIndicator.isHidden = !isLoading
+        DispatchQueue.main.async { [unowned self] in
+            self.activityIndicator.isHidden = !isLoading
+        }
     }
 }

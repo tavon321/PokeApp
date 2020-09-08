@@ -8,12 +8,19 @@
 
 import UIKit
 
-class HomeTabViewController: UITabBarController, Storyboarded {
+final class HomeTabViewController: UITabBarController, Storyboarded {
 
+    var dependencyHandler: HomeDependencyManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Pokemon"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         configureTabBarControllers()
     }
     
@@ -22,9 +29,6 @@ class HomeTabViewController: UITabBarController, Storyboarded {
     }
     
     private lazy var pokemonsViewController: PokemonsViewController = {
-        let controller = PokemonsViewController.instantiate(with: .homeStoryboard)!
-        controller.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
-        
-        return controller
+        return PokemonUIComposer.pokemonsViewController(with: dependencyHandler)
     }()
 }
