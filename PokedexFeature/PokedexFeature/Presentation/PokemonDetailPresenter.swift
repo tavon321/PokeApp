@@ -25,8 +25,8 @@ public final class PokemonImagePresenter<View: PokemonDetailView, Image> where V
         self.typeImageTransformer = typeImageTransformer
     }
     
-    public func didStartLoadingImageData(for model: PokemonDetail) {
-        view.display(PokemonDetailViewModel(name: model.name, number: model.id, types: getTypeImages(for: model.types), image: nil))
+    public func didStartLoadingDetailData(for model: Pokemon) {
+        view.display(PokemonDetailViewModel(name: model.name, number: nil, types: nil, image: nil))
     }
     
     // MARK: - Helpers
