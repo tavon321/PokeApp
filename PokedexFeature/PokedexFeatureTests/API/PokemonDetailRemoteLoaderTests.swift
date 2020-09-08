@@ -75,8 +75,6 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
     }
     
     // MARK: Helpers
-    private var anyURL: URL { return URL(string: "https://a-url.com")! }
-    
     private func makeItemJson(_ item: [String: Any]) -> Data {
         return try! JSONSerialization.data(withJSONObject: item)
     }

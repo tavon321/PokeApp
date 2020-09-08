@@ -36,7 +36,6 @@ class PokemonPresenterTests: XCTestCase {
     
     func test_didFinishLoadingWithError_stopsLoadingAndDisplayErrorMessage() {
         let (sut, view) = makeSUT()
-        let anyError = NSError(domain: "", code: 0)
         let errorMessage = "Couldn't load Pokemons"
         
         sut.didFinishLoading(with: anyError)

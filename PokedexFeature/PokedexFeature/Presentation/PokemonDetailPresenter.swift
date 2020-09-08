@@ -14,7 +14,7 @@ public protocol PokemonDetailView {
     func display(_ model: PokemonDetailViewModel<Image>)
 }
 
-public final class PokemonImagePresenter<View: PokemonDetailView, Image> where View.Image == Image {
+public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where View.Image == Image {
     private let view: View
     private let imageTransformer: (Data) -> Image?
     private let typeImageTransformer: (String?) -> Image?
@@ -34,6 +34,10 @@ public final class PokemonImagePresenter<View: PokemonDetailView, Image> where V
                                             number: model.id,
                                             types: getTypeImages(for: model.types),
                                             image: nil))
+    }
+    
+    public func didFinishLoadingDetailData(with error: Error, for model: Pokemon) {
+        view.display(PokemonDetailViewModel(name: model.name, number: nil, types: nil, image: nil))
     }
     
     // MARK: - Helpers
