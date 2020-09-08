@@ -11,6 +11,7 @@ import UIKit
 final class PokemonsViewController: UIViewController, Storyboarded {
     
     private var searchController: UISearchController!
+    private var delegate: PokemonViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,11 @@ final class PokemonsViewController: UIViewController, Storyboarded {
         configureNavBar()
         configureToolbar()
         configureSearchController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        delegate?.didRequestPokemonData()
     }
     
     private func configureNavBar() {
@@ -38,4 +44,3 @@ final class PokemonsViewController: UIViewController, Storyboarded {
         tabBarItem = barButtonItem
     }
 }
-
