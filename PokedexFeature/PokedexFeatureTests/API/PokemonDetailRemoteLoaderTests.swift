@@ -17,7 +17,8 @@ class PokemonDetailRemoteLoader: PokemonDetailLoader {
     }
     
     func loadDetail(with url: URL, completion: @escaping (PokemonDetailLoader.Result) -> Void) {
-        
+        client.get(from: url) { _ in
+        }
     }
 }
 
@@ -27,6 +28,16 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
         let (_, client) = createSUT()
         
         XCTAssertTrue(client.requestedURLs.isEmpty)
+    }
+    
+    func test_loadDetailTwice_requestDataFromURLTwice() {
+        let expectedURL = anyURL
+        let (sut, client) = createSUT()
+        
+        sut.loadDetail(with: expectedURL) { _ in }
+        sut.loadDetail(with: expectedURL) { _ in }
+        
+        XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
     }
     
 
