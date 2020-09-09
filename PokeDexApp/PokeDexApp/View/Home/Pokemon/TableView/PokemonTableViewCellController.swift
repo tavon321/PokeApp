@@ -15,8 +15,9 @@ public protocol PokemonTableViewCellControllerDelegate {
 }
 
 public class PokemonTableViewCellController: PokemonDetailView {
-
+    
     private let pokemon: Pokemon
+    private var pokemonViewModel: PokemonDetailViewModel<UIImage>?
     private var cell: PokemonTableViewCell?
     private let delegate: PokemonTableViewCellControllerDelegate
     
@@ -41,6 +42,16 @@ public class PokemonTableViewCellController: PokemonDetailView {
     }
     
     public func display(_ model: PokemonDetailViewModel<UIImage>) {
+        guard pokemonViewModel?.isLoading ?? true else {
+            _display(pokemonViewModel!)
+            return
+        }
+        
+        self.pokemonViewModel = model
+        _display(model)
+    }
+    
+    private func _display(_ model: PokemonDetailViewModel<UIImage>) {
         DispatchQueue.main.async { [unowned self] in
             self.cell?.set(title: model.name)
             self.cell?.set(number: model.number)
