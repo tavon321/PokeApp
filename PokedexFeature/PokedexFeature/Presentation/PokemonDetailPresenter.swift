@@ -40,6 +40,14 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
         view.display(PokemonDetailViewModel(name: model.name, number: nil, types: nil, image: nil))
     }
     
+    public func didStatLoadingImageData(for model: PokemonDetail) {
+        // TODO: Add a loader on the pokemon image if have time
+        view.display(PokemonDetailViewModel(name: model.name,
+                                            number: model.id,
+                                            types: getTypeImages(for: model.types),
+                                            image: nil))
+    }
+    
     // MARK: - Helpers
     private func getTypeImages(for types: [Type]) -> (Image?, Image?) {
         guard types.count <= 2  else {
