@@ -31,7 +31,9 @@ class PokemonDetailMapper {
     }
     
     static func map(response: HTTPURLResponse, data: Data) -> PokemonDetailLoader.Result {
-        guard response.isOK, let remoteDetail = try? JSONDecoder().decode(RemotePokemonDetail.self, from: data) else { return .failure(PokemonDetailRemoteLoader.Error.invalidData)}
+        guard response.isOK, let remoteDetail = try? JSONDecoder().decode(RemotePokemonDetail.self, from: data) else {
+            return .failure(PokemonDetailRemoteLoader.Error.invalidData)
+        }
         
         return .success(remoteDetail.pokemonDetail)
     }
