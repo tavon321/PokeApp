@@ -46,7 +46,16 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
         view.display(PokemonDetailViewModel(name: model.name,
                                             number: model.id,
                                             types: getTypeImages(for: model.types),
-                                            image: nil, isLoading: true))
+                                            image: nil,
+                                            isLoading: true))
+    }
+    
+    public func didFinishLoadingImageData(with error: Error, for model: PokemonDetail) {
+        view.display(PokemonDetailViewModel(name: model.name,
+                                            number: model.id,
+                                            types: getTypeImages(for: model.types),
+                                            image: nil,
+                                            isLoading: false))
     }
     
     public func didFinishLoadingImageData(for model: PokemonDetail, data: Data) {

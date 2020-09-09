@@ -85,7 +85,27 @@ class PokemonDetailPresenterTests: XCTestCase {
         XCTAssertEqual(message?.isLoading, true)
     }
     
-    func test_didFinishLoadingImageData_displaysNameNumberAndType() {
+    func test_didFinishLoadingImageDataWithError_displaysNameNumberAndType() {
+        let transformedData = AnyImage()
+        let expectedPokemonDetail = uniqueDetail
+        let expectedName = expectedPokemonDetail.name.uppercasingFirst
+        let expectedNumber = "#0\(expectedPokemonDetail.id)"
+        
+        let (sut, view) = makeSUT(imageTransformer: { _ in transformedData },
+                                  typeImageTransformer: { _ in transformedData })
+        
+        sut.didFinishLoadingImageData(with: anyError, for: expectedPokemonDetail)
+        
+        let message = view.messages.first
+        XCTAssertEqual(view.messages.count, 1)
+        XCTAssertEqual(message?.name, expectedName)
+        XCTAssertEqual(message?.number, expectedNumber)
+        XCTAssertEqual(message?.types?.0, transformedData)
+        XCTAssertEqual(message?.image, nil)
+        XCTAssertEqual(message?.isLoading, false)
+    }
+    
+    func test_didFinishLoadingImageDataWithDetail_displaysNameNumberAndType() {
         let transformedData = AnyImage()
         let expectedPokemonDetail = uniqueDetail
         let expectedName = expectedPokemonDetail.name.uppercasingFirst
