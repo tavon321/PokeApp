@@ -49,12 +49,4 @@ final class PokemonTableViewCell: UITableViewCell {
         }
         pokemonImageView.image = image
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        pokemonImageView.image = #imageLiteral(resourceName: "pokemon-tab-icon")
-        pokemonFirstElement.image = nil
-        pokemonSecondElement.image = nil
-    }
 }

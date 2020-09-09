@@ -49,4 +49,9 @@ final class PokemonDetailInteractor<View: PokemonDetailView, Image>: PokemonTabl
             }
         }
     }
+    
+    func didCancelDataRequest() {
+        // TODO cancel data loaded to cells that are not presented
+    }
+    
 }

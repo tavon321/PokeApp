@@ -11,6 +11,7 @@ import PokedexFeature
 
 public protocol PokemonTableViewCellControllerDelegate {
     func didRequestDetail(for pokemon: Pokemon)
+    func didCancelDataRequest()
 }
 
 public class PokemonTableViewCellController: PokemonDetailView {
@@ -46,6 +47,11 @@ public class PokemonTableViewCellController: PokemonDetailView {
             self.cell?.set(elementImages: model.types)
             self.cell?.set(image: model.image)
         }
+    }
+    
+    func cancelLoad() {
+        cell = nil
+        delegate.didCancelDataRequest()
     }
 }
 

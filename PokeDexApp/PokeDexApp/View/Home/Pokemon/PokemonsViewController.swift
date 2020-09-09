@@ -9,7 +9,7 @@
 import UIKit
 import PokedexFeature
 
-final class PokemonsViewController: UIViewController, Storyboarded {
+final class PokemonsViewController: UIViewController, Storyboarded, UITableViewDelegate {
     
     // MARK: - UI
     @IBOutlet private var containerView: UIView!
@@ -96,6 +96,11 @@ final class PokemonsViewController: UIViewController, Storyboarded {
         informationView.heightAnchor.constraint(equalToConstant: containerView.bounds.height).isActive = true
         informationView.widthAnchor.constraint(equalToConstant: containerView.bounds.width * multipliyer).isActive = true
     }
+    
+    // MARK: - TableView Delegate
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableViewDataSource?.cancelCellControllerLoad(forRowAt: indexPath)
+    }
 }
 
 extension PokemonsViewController: PokemonView {
@@ -115,6 +120,7 @@ extension PokemonsViewController: PokemonView {
         })
         
         tableView.dataSource = tableViewDataSource
+        tableView.delegate = self
     }
 }
 

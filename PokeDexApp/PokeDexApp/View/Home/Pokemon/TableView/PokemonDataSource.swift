@@ -49,4 +49,8 @@ final class PokemonDataSource: UITableViewDiffableDataSource<Int, PokemonTableVi
         
         applySnapshot(with: filteredControllers)
     }
+    
+    func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
+        controllers[indexPath.row].cancelLoad()
+    }
 }
