@@ -11,5 +11,5 @@ import Foundation
 public protocol PokemonImageLoader {
     typealias Result = Swift.Result<Data, Error>
     
-    func loadImageData(url: URL, completion: (Result) -> Void)
+    func loadImageData(with url: URL, completion: (Result) -> Void)
 }

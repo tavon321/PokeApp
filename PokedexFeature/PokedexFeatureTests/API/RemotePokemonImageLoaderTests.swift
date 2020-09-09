@@ -13,11 +13,17 @@ class RemotePokemonImageLoader: PokemonImageLoader {
     
     private let client: HTTPClient
     
+    public enum Error: Swift.Error {
+        case connectivity
+        case invalidData
+    }
+    
     init(client: HTTPClient) {
         self.client = client
     }
     
-    func loadImageData(url: URL, completion: (PokemonImageLoader.Result) -> Void) {
+    func loadImageData(with url: URL, completion: (PokemonImageLoader.Result) -> Void) {
+        client.get(from: url) { _ in }
     }
 }
 
@@ -29,10 +35,49 @@ class RemotePokemonImageLoaderTests: XCTestCase {
         XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
+    func test_loadImageDataFromURLTwice_requestsDataFromURLTwice() {
+        let expectedURL = anyURL
+        let (sut, client) = createSUT(url: expectedURL)
+        
+        sut.loadImageData(with: expectedURL) { _ in }
+        sut.loadImageData(with: expectedURL) { _ in }
+        
+        XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
+    }
+    
     // MARK: Helpers
+    private func expect(sut: RemotePokemonImageLoader,
+                        toCompleteWith expectedResult: Result<Data, RemotePokemonImageLoader.Error>,
+                        file: StaticString = #file,
+                        line: UInt = #line,
+                        when action: () -> Void) {
+        let exp = expectation(description: "Wait for result")
+        
+        sut.loadImageData(with: anyURL) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedItem), .success(expectedItem)):
+                XCTAssertEqual(receivedItem, expectedItem)
+            case let (.failure(receivedError as RemotePokemonImageLoader.Error), .failure(expectedError)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        action()
+        
+        wait(for: [exp], timeout: 0.1)
+    }
+    
     private func createSUT(url: URL, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonImageLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemotePokemonImageLoader(client: client)
+        
+        trackForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        
         
         return (sut: sut, client: client)
     }
