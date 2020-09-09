@@ -116,6 +116,7 @@ extension PokemonsViewController: PokemonView {
         })
         
         tableView.dataSource = tableViewDataSource
+        tableView.prefetchDataSource = tableViewDataSource
     }
 }
 

@@ -46,6 +46,9 @@ final class PokemonTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        pokemonName.text = nil
+        pokemonNumber.text = nil
+        
         pokemonFirstElement.image = nil
         pokemonSecondElement.image = nil
     }

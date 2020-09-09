@@ -9,7 +9,8 @@
 import UIKit
 import PokedexFeature
 
-final class PokemonDataSource: UITableViewDiffableDataSource<Int, PokemonTableViewCellController> {
+final class PokemonDataSource: UITableViewDiffableDataSource<Int, PokemonTableViewCellController>, UITableViewDataSourcePrefetching {
+    
     typealias PokemonClosure = ([PokemonTableViewCellController]) -> Void
     
     private var controllers: [PokemonTableViewCellController] = []
@@ -34,5 +35,11 @@ final class PokemonDataSource: UITableViewDiffableDataSource<Int, PokemonTableVi
         snapshot.appendItems(controllers)
 
         self.apply(snapshot, animatingDifferences: false)
+    }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            controllers[indexPath.row]
+        }
     }
 }
