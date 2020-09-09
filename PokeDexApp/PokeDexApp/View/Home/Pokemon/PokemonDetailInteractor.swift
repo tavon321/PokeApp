@@ -29,8 +29,23 @@ final class PokemonDetailInteractor<View: PokemonDetailView, Image>: PokemonTabl
             switch result {
             case .success(let detail):
                 self.presenter?.didFinishLoadingDetailData(for: detail)
+                self.requestImage(with: detail)
             case .failure(let error):
                 self.presenter?.didFinishLoadingDetailData(with: error, for: pokemon)
+            }
+        }
+    }
+    
+    private func requestImage(with pokemonDetail: PokemonDetail) {
+        presenter?.didStatLoadingImageData(for: pokemonDetail)
+        
+        pokemonImageLoader.loadImageData(with: pokemonDetail.image) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                self.presenter?.didFinishLoadingImageData(for: pokemonDetail, data: data)
+            case .failure:
+                break // TODO add image fail case if have time.
             }
         }
     }

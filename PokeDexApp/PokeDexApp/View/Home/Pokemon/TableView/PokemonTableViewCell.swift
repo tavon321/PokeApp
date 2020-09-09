@@ -43,12 +43,17 @@ final class PokemonTableViewCell: UITableViewCell {
         pokemonNumber.isHidden = false
     }
     
+    func set(image: UIImage?) {
+        guard let image = image else {
+            return pokemonImageView.image = #imageLiteral(resourceName: "pokemon-tab-icon")
+        }
+        pokemonImageView.image = image
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        pokemonName.text = nil
-        pokemonNumber.text = nil
-        
+        pokemonImageView.image = #imageLiteral(resourceName: "pokemon-tab-icon")
         pokemonFirstElement.image = nil
         pokemonSecondElement.image = nil
     }

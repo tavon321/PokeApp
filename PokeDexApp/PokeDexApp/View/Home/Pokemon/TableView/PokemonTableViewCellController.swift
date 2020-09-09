@@ -44,6 +44,7 @@ public class PokemonTableViewCellController: PokemonDetailView {
             self.cell?.set(title: model.name)
             self.cell?.set(number: model.number)
             self.cell?.set(elementImages: model.types)
+            self.cell?.set(image: model.image)
         }
     }
 }
