@@ -22,8 +22,14 @@ class RemotePokemonImageLoader: PokemonImageLoader {
         self.client = client
     }
     
-    func loadImageData(with url: URL, completion: (PokemonImageLoader.Result) -> Void) {
-        client.get(from: url) { _ in }
+    func loadImageData(with url: URL, completion: @escaping (PokemonImageLoader.Result) -> Void) {
+        client.get(from: url) { result in
+            switch result {
+            case .success: break
+            case .failure:
+                completion(.failure(Error.connectivity))
+            }
+        }
     }
 }
 
@@ -43,6 +49,15 @@ class RemotePokemonImageLoaderTests: XCTestCase {
         sut.loadImageData(with: expectedURL) { _ in }
         
         XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
+    }
+    
+    func test_loadImageDataFromURL_deliversConnectivityErrorOnClientError() {
+        let (sut, client) = createSUT(url: anyURL)
+        let clientError = NSError(domain: "a client error", code: 0)
+
+        expect(sut: sut, toCompleteWith: .failure(.connectivity), when: {
+            client.complete(with: clientError)
+        })
     }
     
     // MARK: Helpers
