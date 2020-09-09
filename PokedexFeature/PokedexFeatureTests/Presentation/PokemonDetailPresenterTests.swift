@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import PokedexFeature
+@testable import PokedexFeature
 
 class PokemonDetailPresenterTests: XCTestCase {
     
@@ -20,13 +20,13 @@ class PokemonDetailPresenterTests: XCTestCase {
     func test_didStartLoadingDetailData_displaysNameOnly() {
         let (sut, view) = makeSUT()
         let expectedPokemon = anyPokemon
-        
+        let expectedName = expectedPokemon.name.uppercasingFirst
         
         sut.didStartLoadingDetailData(for: expectedPokemon)
         
         let message = view.messages.first
         XCTAssertEqual(view.messages.count, 1)
-        XCTAssertEqual(message?.name, expectedPokemon.name)
+        XCTAssertEqual(message?.name, expectedName)
         XCTAssertNil(message?.number)
         XCTAssertNil(message?.types)
         XCTAssertNil(message?.image)
@@ -35,6 +35,8 @@ class PokemonDetailPresenterTests: XCTestCase {
     func test_didFinishLoadingDetailData_displaysNameNumberAndType() {
         let transformedData = AnyImage()
         let expectedPokemonDetail = uniqueDetail
+        let expectedName = expectedPokemonDetail.name.uppercasingFirst
+        let expectedNumber = "#0\(expectedPokemonDetail.id)"
         
         let (sut, view) = makeSUT(typeImageTransformer: { _ in transformedData })
         
@@ -42,20 +44,21 @@ class PokemonDetailPresenterTests: XCTestCase {
         
         let message = view.messages.first
         XCTAssertEqual(view.messages.count, 1)
-        XCTAssertEqual(message?.name, expectedPokemonDetail.name)
-        XCTAssertEqual(message?.number, expectedPokemonDetail.id)
+        XCTAssertEqual(message?.name, expectedName)
+        XCTAssertEqual(message?.number, expectedNumber)
         XCTAssertEqual(message?.types?.0, transformedData)
     }
     
     func test_didFinishLoadingDetailWithError_displaysNameNumberAndType() {
         let (sut, view) = makeSUT()
         let expectedPokemon = anyPokemon
+        let expectedName = expectedPokemon.name.uppercasingFirst
         
         sut.didFinishLoadingDetailData(with: anyError, for: expectedPokemon)
         
         let message = view.messages.first
         XCTAssertEqual(view.messages.count, 1)
-        XCTAssertEqual(message?.name, expectedPokemon.name)
+        XCTAssertEqual(message?.name, expectedName)
         XCTAssertNil(message?.number)
         XCTAssertNil(message?.types)
         XCTAssertNil(message?.image)

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PokeDexApp
+@testable import PokedexFeature
 
 class UppercasedFirstTests: XCTestCase {
     
