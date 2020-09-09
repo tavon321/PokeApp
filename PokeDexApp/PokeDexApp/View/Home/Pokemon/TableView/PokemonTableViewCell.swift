@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PokemonTableViewCell: UITableViewCell {
+final class PokemonTableViewCell: UITableViewCell {
     
     @IBOutlet private var pokemonName: UILabel!
     @IBOutlet private var pokemonNumber: UILabel!
@@ -41,5 +41,12 @@ class PokemonTableViewCell: UITableViewCell {
         }
         pokemonNumber.text = number
         pokemonNumber.isHidden = false
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        pokemonFirstElement.image = nil
+        pokemonSecondElement.image = nil
     }
 }
