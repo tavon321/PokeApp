@@ -66,6 +66,21 @@ class RemotePokemonImageLoaderTests: XCTestCase {
         })
     }
     
+    func test_loadImageDataFromURL_doesNotDeliverResultOnSUTDeallocation() {
+        let client = HTTPClientSpy()
+        var sut: RemotePokemonImageLoader? = RemotePokemonImageLoader(client: client)
+        
+        var capturedResult: RemotePokemonImageLoader.Result?
+        sut!.loadImageData(with: anyURL) { result in
+            capturedResult = result
+        }
+        
+        sut = nil
+        client.complete(withStatusCode: 200, data: Data())
+        
+        XCTAssertNil(capturedResult)
+    }
+    
     // MARK: Helpers
     private func expect(sut: RemotePokemonImageLoader,
                         toCompleteWith expectedResult: Result<Data, RemotePokemonImageLoader.Error>,

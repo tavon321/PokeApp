@@ -59,7 +59,7 @@ class PokemonDetailRemoteLoaderTests: XCTestCase {
         }
     }
     
-    func test_laod_doesNotDeliverResultOnSUTDeallocation() {
+    func test_load_doesNotDeliverResultOnSUTDeallocation() {
         let client = HTTPClientSpy()
         var sut: PokemonDetailRemoteLoader? = PokemonDetailRemoteLoader(client: client)
         
