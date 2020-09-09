@@ -12,11 +12,13 @@ import PokedexFeature
 final class PokemonDetailInteractor<View: PokemonDetailView, Image>: PokemonTableViewCellControllerDelegate where View.Image == Image {
     
     private let detailLoader: PokemonDetailLoader
+    private let pokemonImageLoader: PokemonImageLoader
     
     var presenter: PokemonDetailPresenter<View, Image>?
     
-    init(detailLoader: PokemonDetailLoader) {
+    init(detailLoader: PokemonDetailLoader, pokemonImageLoader: PokemonImageLoader) {
         self.detailLoader = detailLoader
+        self.pokemonImageLoader = pokemonImageLoader
     }
     
     func didRequestDetail(for pokemon: Pokemon) {

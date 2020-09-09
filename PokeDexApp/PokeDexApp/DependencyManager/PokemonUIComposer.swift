@@ -26,7 +26,9 @@ final class PokemonUIComposer {
     }
     
     static func pokemonTableViewCellController(with dependecyHandler: HomeDependencyManager, pokemon: Pokemon) -> PokemonTableViewCellController {
-        let interactor = PokemonDetailInteractor<WeakRefVirtualProxy<PokemonTableViewCellController>, UIImage>(detailLoader: dependecyHandler.pokemonDetailLoaderUseCase)
+        let interactor =
+            PokemonDetailInteractor<WeakRefVirtualProxy<PokemonTableViewCellController>, UIImage>(detailLoader: dependecyHandler.pokemonDetailLoaderUseCase,
+                                                                                                  pokemonImageLoader: dependecyHandler.pokemonImageLoaderUseCase)
         let controller = PokemonTableViewCellController(pokemon: pokemon, delegate: interactor)
         let presenter = PokemonDetailPresenter(view: WeakRefVirtualProxy(controller),
                                                typeImageTransformer: { type in

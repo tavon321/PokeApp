@@ -22,4 +22,8 @@ final class HomeDependencyManager {
     lazy var pokemonDetailLoaderUseCase: PokemonDetailLoader = {
         return PokemonDetailRemoteLoader(client: httpClient)
     }()
+    
+    lazy var pokemonImageLoaderUseCase: RemotePokemonImageLoader = {
+        return RemotePokemonImageLoader(client: httpClient)
+    }()
 }
