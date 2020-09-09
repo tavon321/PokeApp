@@ -57,6 +57,15 @@ class RemotePokemonImageLoaderTests: XCTestCase {
         })
     }
     
+    func test_loadImageDataFromURL_deliversReceivedNonEmptyDataOn200HTTPResponse() {
+        let (sut, client) = createSUT(url: anyURL)
+        let nonEmptyData = Data("non-empty data".utf8)
+        
+        expect(sut: sut, toCompleteWith: .success(nonEmptyData), when: {
+            client.complete(withStatusCode: 200, data: nonEmptyData)
+        })
+    }
+    
     // MARK: Helpers
     private func expect(sut: RemotePokemonImageLoader,
                         toCompleteWith expectedResult: Result<Data, RemotePokemonImageLoader.Error>,

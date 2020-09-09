@@ -24,8 +24,11 @@ public class RemotePokemonImageLoader: PokemonImageLoader {
     public func loadImageData(with url: URL, completion: @escaping (PokemonImageLoader.Result) -> Void) {
         client.get(from: url) { result in
             switch result {
-            case .success:
-                completion(.failure(Error.invalidData))
+            case .success((let httpResponse, let data)):
+                guard httpResponse.isOK, !data.isEmpty else {
+                    return completion(.failure(Error.invalidData))
+                }
+                completion(.success(data))
             case .failure:
                 completion(.failure(Error.connectivity))
             }
