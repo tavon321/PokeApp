@@ -30,6 +30,7 @@ class PokemonDetailPresenterTests: XCTestCase {
         XCTAssertNil(message?.number)
         XCTAssertNil(message?.types)
         XCTAssertNil(message?.image)
+        XCTAssertEqual(message?.isLoading, true)
     }
     
     func test_didFinishLoadingDetailData_displaysNameNumberAndType() {
@@ -47,6 +48,7 @@ class PokemonDetailPresenterTests: XCTestCase {
         XCTAssertEqual(message?.name, expectedName)
         XCTAssertEqual(message?.number, expectedNumber)
         XCTAssertEqual(message?.types?.0, transformedData)
+        XCTAssertEqual(message?.isLoading, true)
     }
     
     func test_didFinishLoadingDetailWithError_displaysNameNumberAndType() {
@@ -62,6 +64,7 @@ class PokemonDetailPresenterTests: XCTestCase {
         XCTAssertNil(message?.number)
         XCTAssertNil(message?.types)
         XCTAssertNil(message?.image)
+        XCTAssertEqual(message?.isLoading, false)
     }
     
     func test_didStatLoadingImageData_displaysNameNumberAndType() {
@@ -79,6 +82,7 @@ class PokemonDetailPresenterTests: XCTestCase {
         XCTAssertEqual(message?.name, expectedName)
         XCTAssertEqual(message?.number, expectedNumber)
         XCTAssertEqual(message?.types?.0, transformedData)
+        XCTAssertEqual(message?.isLoading, true)
     }
     
     func test_didFinishLoadingImageData_displaysNameNumberAndType() {
@@ -98,6 +102,7 @@ class PokemonDetailPresenterTests: XCTestCase {
         XCTAssertEqual(message?.number, expectedNumber)
         XCTAssertEqual(message?.types?.0, transformedData)
         XCTAssertEqual(message?.image, transformedData)
+        XCTAssertEqual(message?.isLoading, false)
     }
     
     // MARK: Helpers

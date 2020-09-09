@@ -26,18 +26,19 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
     }
     
     public func didStartLoadingDetailData(for model: Pokemon) {
-        view.display(PokemonDetailViewModel(name: model.name, number: nil, types: nil, image: nil))
+        view.display(PokemonDetailViewModel(name: model.name, number: nil, types: nil, image: nil, isLoading: true))
     }
     
     public func didFinishLoadingDetailData(for model: PokemonDetail) {
         view.display(PokemonDetailViewModel(name: model.name,
                                             number: model.id,
                                             types: getTypeImages(for: model.types),
-                                            image: nil))
+                                            image: nil,
+                                            isLoading: true))
     }
     
     public func didFinishLoadingDetailData(with error: Error, for model: Pokemon) {
-        view.display(PokemonDetailViewModel(name: model.name, number: nil, types: nil, image: nil))
+        view.display(PokemonDetailViewModel(name: model.name, number: nil, types: nil, image: nil, isLoading: false))
     }
     
     public func didStatLoadingImageData(for model: PokemonDetail) {
@@ -45,7 +46,7 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
         view.display(PokemonDetailViewModel(name: model.name,
                                             number: model.id,
                                             types: getTypeImages(for: model.types),
-                                            image: nil))
+                                            image: nil, isLoading: true))
     }
     
     public func didFinishLoadingImageData(for model: PokemonDetail, data: Data) {
@@ -54,7 +55,7 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
         view.display(PokemonDetailViewModel(name: model.name,
                                             number: model.id,
                                             types: getTypeImages(for: model.types),
-                                            image: image))
+                                            image: image, isLoading: false))
     }
     
     // MARK: - Helpers
