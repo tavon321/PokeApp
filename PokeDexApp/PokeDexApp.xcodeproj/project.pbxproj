@@ -146,14 +146,14 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		DCA96E5A2507D69100579CC8 /* DependencyManagar */ = {
+		DCA96E5A2507D69100579CC8 /* DependencyManager */ = {
 			isa = PBXGroup;
 			children = (
 				DC43017E2507FDCE0094F139 /* Helpers */,
 				DCA96E5B2507D6AF00579CC8 /* HomeDependencyManager.swift */,
 				DCA96E692507DC3E00579CC8 /* PokemonUIComposer.swift */,
 			);
-			path = DependencyManagar;
+			path = DependencyManager;
 			sourceTree = "<group>";
 		};
 		DCA96E5D2507D6F100579CC8 /* Frameworks */ = {
@@ -199,7 +199,7 @@
 		DCFFF1ED2507001900C3E436 /* PokeDexApp */ = {
 			isa = PBXGroup;
 			children = (
-				DCA96E5A2507D69100579CC8 /* DependencyManagar */,
+				DCA96E5A2507D69100579CC8 /* DependencyManager */,
 				DCFFF2432507022C00C3E436 /* View */,
 				DCFFF2422507021F00C3E436 /* Delegate */,
 				DCFFF1F92507001A00C3E436 /* Assets.xcassets */,

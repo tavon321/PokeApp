@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import PokedexFature
+import PokedexFeature
 @testable import PokeDexApp
 
 class PokemonUIComposerTests: XCTestCase {
@@ -22,7 +22,8 @@ class PokemonUIComposerTests: XCTestCase {
     
     func test_pokemonTableViewCellController_doesNotLeak() {
         let dependencyHandler = HomeDependencyManager()
-        let sut = PokemonUIComposer.pokemonTableViewCellController(with: dependencyHandler, okemon(name: "a name", url: anyURL))
+        let sut = PokemonUIComposer.pokemonTableViewCellController(with: dependencyHandler,
+                                                                   pokemon: Pokemon(name: "a name", url: URL(string: "https://a-url.com")!))
         
         trackForMemoryLeaks(dependencyHandler)
         trackForMemoryLeaks(sut)

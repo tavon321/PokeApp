@@ -48,7 +48,6 @@ class PokemonPresenterTests: XCTestCase {
     
     // MARK: - Helpers
     private var anyPokemon: Pokemon { return Pokemon(name: "name", url: anyURL)}
-    private var anyURL: URL { return URL(string: "https://a-url.com")! }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: PokemonPresenter, view: ViewSpy) {
         let view = ViewSpy()

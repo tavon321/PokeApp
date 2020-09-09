@@ -6,7 +6,7 @@
 //  Copyright © 2020 Gustavo Londono. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import PokedexFeature
 
 final class WeakRefVirtualProxy<T: AnyObject> {
@@ -37,3 +37,8 @@ extension WeakRefVirtualProxy: PokemonView where T: PokemonView {
     }
 }
 
+extension WeakRefVirtualProxy: PokemonDetailView where T: PokemonDetailView, T.Image == UIImage {
+    func display(_ model: PokemonDetailViewModel<UIImage>) {
+        object?.display(model)
+    }
+}
