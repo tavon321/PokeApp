@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC43017D2507FDC00094F139 /* String+UppercasedFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43017C2507FDC00094F139 /* String+UppercasedFirst.swift */; };
-		DC4301802507FE0E0094F139 /* UppercasedFirstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43017F2507FE0E0094F139 /* UppercasedFirstTests.swift */; };
+		DC3E583D250841710044152A /* PokemonDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3E583C250841710044152A /* PokemonDetailInteractor.swift */; };
 		DC9950A22507DE0F003C3998 /* PokemonErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950A12507DE0F003C3998 /* PokemonErrorView.swift */; };
 		DC9950A52507DE40003C3998 /* PokemonErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9950A42507DE40003C3998 /* PokemonErrorView.xib */; };
 		DC9950A72507E01B003C3998 /* extension+loadFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */; };
@@ -64,8 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC43017C2507FDC00094F139 /* String+UppercasedFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UppercasedFirst.swift"; sourceTree = "<group>"; };
-		DC43017F2507FE0E0094F139 /* UppercasedFirstTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppercasedFirstTests.swift; sourceTree = "<group>"; };
+		DC3E583C250841710044152A /* PokemonDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailInteractor.swift; sourceTree = "<group>"; };
 		DC9950A12507DE0F003C3998 /* PokemonErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonErrorView.swift; sourceTree = "<group>"; };
 		DC9950A42507DE40003C3998 /* PokemonErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonErrorView.xib; sourceTree = "<group>"; };
 		DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+loadFromNib.swift"; sourceTree = "<group>"; };
@@ -174,6 +172,7 @@
 				DC9950A32507DE2E003C3998 /* ErrorView */,
 				DCFFF1F22507001900C3E436 /* PokemonsViewController.swift */,
 				DCA96E672507DB7A00579CC8 /* PokemonInteractor.swift */,
+				DC3E583C250841710044152A /* PokemonDetailInteractor.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -214,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				DCFFF2072507001A00C3E436 /* PokemonUIComposerTests.swift */,
-				DC43017F2507FE0E0094F139 /* UppercasedFirstTests.swift */,
 				DCFFF2092507001A00C3E436 /* Info.plist */,
 			);
 			path = PokeDexAppTests;
@@ -255,7 +253,6 @@
 				DCFFF24E250706FD00C3E436 /* Storyboard+instanitate.swift */,
 				DC9950A62507E01B003C3998 /* extension+loadFromNib.swift */,
 				DC9950AF2507EA49003C3998 /* UITableView+Register.swift */,
-				DC43017C2507FDC00094F139 /* String+UppercasedFirst.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -395,7 +392,7 @@
 				DCFFF1F12507001900C3E436 /* SceneDelegate.swift in Sources */,
 				DCA96E6A2507DC3E00579CC8 /* PokemonUIComposer.swift in Sources */,
 				DC9950A22507DE0F003C3998 /* PokemonErrorView.swift in Sources */,
-				DC43017D2507FDC00094F139 /* String+UppercasedFirst.swift in Sources */,
+				DC3E583D250841710044152A /* PokemonDetailInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +401,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFFF2082507001A00C3E436 /* PokemonUIComposerTests.swift in Sources */,
-				DC4301802507FE0E0094F139 /* UppercasedFirstTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

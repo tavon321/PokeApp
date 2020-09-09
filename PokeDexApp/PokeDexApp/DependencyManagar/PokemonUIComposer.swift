@@ -21,6 +21,16 @@ final class PokemonUIComposer {
         
         interactor.presenter = presenter
         controller.delegate = interactor
+        controller.dependecyHandler = dependecyHandler
+        return controller
+    }
+    
+    static func pokemonTableViewCellController(with dependecyHandler: HomeDependencyManager, pokemon: Pokemon) -> PokemonTableViewCellController {
+        let interactor = PokemonDetailInteractor<PokemonTableViewCellController, UIImage>(detailLoader: dependecyHandler.pokemonDetailLoaderUseCase)
+        let controller = PokemonTableViewCellController(pokemon: pokemon, delegate: interactor)
+        let presenter = PokemonDetailPresenter(view: controller, typeImageTransformer: { _ in nil }, imageTransformer: { _ in nil })
+        
+        interactor.presenter = presenter
         
         return controller
     }

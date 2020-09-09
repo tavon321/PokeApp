@@ -14,7 +14,7 @@ class PokemonTableView: UITableView {
     private let cellHeight: CGFloat = 75
     
     convenience init() {
-        self.init(frame: .zero, style: .insetGrouped)
+        self.init(frame: .zero, style: .plain)
         rowHeight = cellHeight
         sectionHeaderHeight = sectionSpacing
         

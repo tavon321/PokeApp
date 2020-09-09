@@ -14,10 +14,11 @@ final class PokemonsViewController: UIViewController, Storyboarded {
     // MARK: - UI
     @IBOutlet private var containerView: UIView!
     private var searchController: UISearchController!
-    private var tableViewDataSource: UITableViewDataSource?
+    private var tableViewDataSource: PokemonDataSource?
     
     // MARK: - Dependencies
     var delegate: PokemonViewControllerDelegate?
+    var dependecyHandler: HomeDependencyManager!
     
     // MARK: - Views
     private lazy var errorView: PokemonErrorView = {
@@ -106,13 +107,14 @@ extension PokemonsViewController: PokemonView {
     }
     
     func _display(_ viewModel: PokemonListViewModel) {
-        let controllers = viewModel.list.compactMap { pokemon in
-            return PokemonTableViewCellController(pokemon: pokemon)
+        let controllers = viewModel.list.map { pokemon in
+            PokemonUIComposer.pokemonTableViewCellController(with: dependecyHandler, pokemon: pokemon)
         }
         
         self.tableViewDataSource = PokemonDataSource(tableView: tableView, getPokemons: { closure in
             closure(controllers)
         })
+        
         tableView.dataSource = tableViewDataSource
     }
 }

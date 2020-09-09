@@ -9,7 +9,7 @@
 import UIKit
 import PokedexFeature
 
-final class PokemonDataSource: UITableViewDiffableDataSource<PokemonTableViewCellController, PokemonTableViewCellController> {
+final class PokemonDataSource: UITableViewDiffableDataSource<Int, PokemonTableViewCellController> {
     typealias PokemonClosure = ([PokemonTableViewCellController]) -> Void
     
     private var controllers: [PokemonTableViewCellController] = []
@@ -28,12 +28,10 @@ final class PokemonDataSource: UITableViewDiffableDataSource<PokemonTableViewCel
     }
     
     func applySnapshot(with controllers: [PokemonTableViewCellController]) {
-        var snapshot = NSDiffableDataSourceSnapshot<PokemonTableViewCellController, PokemonTableViewCellController>()
+        var snapshot = NSDiffableDataSourceSnapshot<Int, PokemonTableViewCellController>()
         
-        snapshot.appendSections(controllers)
-        controllers.forEach { controller in
-            snapshot.appendItems([controller], toSection: controller)
-        }
+        snapshot.appendSections([0])
+        snapshot.appendItems(controllers)
 
         self.apply(snapshot, animatingDifferences: false)
     }

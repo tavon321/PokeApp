@@ -42,8 +42,8 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
     
     // MARK: - Helpers
     private func getTypeImages(for types: [Type]) -> (Image?, Image?) {
-        guard types.count < 2  else {
-            fatalError("Everyone knows taht pokemons can only have 2 types.")
+        guard types.count <= 2  else {
+            fatalError("Everyone knows that pokemons can only have 2 types.")
         }
         
         return (typeImageTransformer(types[safe: 0]?.name), typeImageTransformer(types[safe: 1]?.name))

@@ -10,20 +10,22 @@ import UIKit
 
 class PokemonTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var pokemonImageView: UIImageView!
-    @IBOutlet private weak var pokemonName: UILabel!
-    @IBOutlet private weak var pokemonNumber: UILabel!
+    @IBOutlet private var pokemonName: UILabel!
+    @IBOutlet private var pokemonNumber: UILabel!
+    @IBOutlet private var pokemonImageView: UIImageView!
     
-    @IBOutlet private weak var pokemonFirstElement: UIImageView!
-    @IBOutlet private weak var pokemonSecondElement: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet private var pokemonFirstElement: UIImageView!
+    @IBOutlet private var pokemonSecondElement: UIImageView!
     
     func set(title: String) {
         pokemonName.text = title
     }
-
+    
+    func set(number: String?) {
+        guard let number = number else {
+            return pokemonNumber.isHidden = true
+        }
+        pokemonNumber.text = number
+        pokemonNumber.isHidden = false
+    }
 }
