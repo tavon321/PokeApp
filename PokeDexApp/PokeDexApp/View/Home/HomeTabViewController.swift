@@ -12,10 +12,14 @@ final class HomeTabViewController: UITabBarController, Storyboarded {
 
     var dependencyHandler: HomeDependencyManager!
     
+    private let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Pokemon"
+        configureNavBar()
+        configureSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,11 +28,23 @@ final class HomeTabViewController: UITabBarController, Storyboarded {
         configureTabBarControllers()
     }
     
+    private func configureSearchBar() {
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+    }
+    
+    private func configureNavBar() {
+        navigationItem.hidesBackButton = true
+    }
+    
     private func configureTabBarControllers() {
         viewControllers = [pokemonsViewController]
     }
     
     private lazy var pokemonsViewController: PokemonsViewController = {
-        return PokemonUIComposer.pokemonsViewController(with: dependencyHandler)
+        let controller = PokemonUIComposer.pokemonsViewController(with: dependencyHandler)
+        controller.searchController = searchController
+        
+        return controller
     }()
 }

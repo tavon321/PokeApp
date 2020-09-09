@@ -15,7 +15,7 @@ final class HomeDependencyManager {
     }()
     
     lazy var pokemonLoaderUseCase: PokemonRemoteLoader = {
-        let pokemonURL = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=1050")!
+        let pokemonURL = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=893")!
         return PokemonRemoteLoader(url: pokemonURL, client: httpClient)
     }()
     

@@ -13,12 +13,12 @@ final class PokemonsViewController: UIViewController, Storyboarded {
     
     // MARK: - UI
     @IBOutlet private var containerView: UIView!
-    private var searchController: UISearchController!
-    private var tableViewDataSource: PokemonDataSource?
+    var searchController: UISearchController!
     
     // MARK: - Dependencies
     var delegate: PokemonViewControllerDelegate?
     var dependecyHandler: HomeDependencyManager!
+    private var tableViewDataSource: PokemonDataSource?
     
     // MARK: - Views
     private lazy var errorView: PokemonErrorView = {
@@ -71,9 +71,8 @@ final class PokemonsViewController: UIViewController, Storyboarded {
     }
     
     private func configureSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        searchController.searchResultsUpdater = self
         
         navigationItem.searchController = searchController
     }
@@ -116,7 +115,6 @@ extension PokemonsViewController: PokemonView {
         })
         
         tableView.dataSource = tableViewDataSource
-        tableView.prefetchDataSource = tableViewDataSource
     }
 }
 
@@ -143,5 +141,11 @@ extension PokemonsViewController: PokemonLoadingView {
         DispatchQueue.main.async { [unowned self] in
             self.activityIndicator.isHidden = !isLoading
         }
+    }
+}
+
+extension PokemonsViewController: UISearchResultsUpdating {
+    public func updateSearchResults(for searchController: UISearchController) {
+        tableViewDataSource?.filteredSections(for: searchController.searchBar.text)
     }
 }

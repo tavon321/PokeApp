@@ -24,8 +24,8 @@ public class PokemonTableViewCellController: PokemonDetailView {
         self.delegate = delegate
     }
     
-    func preload() {
-        delegate.didRequestDetail(for: pokemon)
+    func name() -> String {
+        return pokemon.name
     }
     
     func view(in tableView: UITableView) -> UITableViewCell {
