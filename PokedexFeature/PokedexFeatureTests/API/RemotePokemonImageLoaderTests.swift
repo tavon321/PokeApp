@@ -9,30 +9,6 @@
 import XCTest
 import PokedexFeature
 
-class RemotePokemonImageLoader: PokemonImageLoader {
-    
-    private let client: HTTPClient
-    
-    public enum Error: Swift.Error {
-        case connectivity
-        case invalidData
-    }
-    
-    init(client: HTTPClient) {
-        self.client = client
-    }
-    
-    func loadImageData(with url: URL, completion: @escaping (PokemonImageLoader.Result) -> Void) {
-        client.get(from: url) { result in
-            switch result {
-            case .success: break
-            case .failure:
-                completion(.failure(Error.connectivity))
-            }
-        }
-    }
-}
-
 class RemotePokemonImageLoaderTests: XCTestCase {
     
     func test_init_doesNotRequestFromURL() {
@@ -59,6 +35,27 @@ class RemotePokemonImageLoaderTests: XCTestCase {
             client.complete(with: clientError)
         })
     }
+    
+    func test_loadImageDataFromURL_deliversInvalidDataErrorOnNon200HTTPResponse() {
+        let (sut, client) = createSUT(url: anyURL)
+        
+        let samples = [199, 201, 300, 400, 500]
+        
+        samples.enumerated().forEach { index, code in
+            expect(sut: sut, toCompleteWith: .failure(.invalidData), when: {
+                client.complete(withStatusCode: code, data: anyData, at: index)
+            })
+        }
+    }
+    
+//    func test_loadImageDataFromURL_deliversInvalidDataErrorOn200HTTPResponseWithEmptyData() {
+//        let (sut, client) = makeSUT()
+//        
+//        expect(sut, toCompleteWith: failure(.invalidData), when: {
+//            let emptyData = Data()
+//            client.complete(withStatusCode: 200, data: emptyData)
+//        })
+//    }
     
     // MARK: Helpers
     private func expect(sut: RemotePokemonImageLoader,
