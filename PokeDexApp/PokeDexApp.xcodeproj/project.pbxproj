@@ -137,11 +137,11 @@
 		DC9950A82507E150003C3998 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				DC9950B32507EAEF003C3998 /* PokemonTableViewCellController.swift */,
+				DC9950B12507EA84003C3998 /* PokemonTableView.swift */,
 				DC9950A92507E16A003C3998 /* PokemonDataSource.swift */,
 				DC9950AB2507E253003C3998 /* PokemonTableViewCell.xib */,
 				DC9950AD2507E97C003C3998 /* PokemonTableViewCell.swift */,
-				DC9950B12507EA84003C3998 /* PokemonTableView.swift */,
-				DC9950B32507EAEF003C3998 /* PokemonTableViewCellController.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";

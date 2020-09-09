@@ -43,6 +43,7 @@ public class PokemonTableViewCellController: PokemonDetailView {
         DispatchQueue.main.async { [unowned self] in
             self.cell?.set(title: model.name)
             self.cell?.set(number: model.number)
+            self.cell?.set(elementImages: model.types)
         }
     }
 }
