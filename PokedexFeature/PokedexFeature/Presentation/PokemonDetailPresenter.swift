@@ -48,6 +48,15 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
                                             image: nil))
     }
     
+    public func didFinishLoadingImageData(for model: PokemonDetail, data: Data) {
+        let image = imageTransformer(data)
+        
+        view.display(PokemonDetailViewModel(name: model.name,
+                                            number: model.id,
+                                            types: getTypeImages(for: model.types),
+                                            image: image))
+    }
+    
     // MARK: - Helpers
     private func getTypeImages(for types: [Type]) -> (Image?, Image?) {
         guard types.count <= 2  else {
@@ -55,6 +64,5 @@ public final class PokemonDetailPresenter<View: PokemonDetailView, Image> where 
         }
         
         return (typeImageTransformer(types[safe: 0]?.name), typeImageTransformer(types[safe: 1]?.name))
-        
     }
 }
