@@ -22,7 +22,7 @@
 		DCA96E5C2507D6AF00579CC8 /* HomeDependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA96E5B2507D6AF00579CC8 /* HomeDependencyManager.swift */; };
 		DCA96E632507D97400579CC8 /* PokedexFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA96E622507D97400579CC8 /* PokedexFeature.framework */; };
 		DCA96E642507D97400579CC8 /* PokedexFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCA96E622507D97400579CC8 /* PokedexFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCA96E682507DB7A00579CC8 /* PokemonInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA96E672507DB7A00579CC8 /* PokemonInteractor.swift */; };
+		DCA96E682507DB7A00579CC8 /* PokemonLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA96E672507DB7A00579CC8 /* PokemonLoaderPresentationAdapter.swift */; };
 		DCA96E6A2507DC3E00579CC8 /* PokemonUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA96E692507DC3E00579CC8 /* PokemonUIComposer.swift */; };
 		DCF011BA250708FC006A943A /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF011B9250708FC006A943A /* HomeNavViewController.swift */; };
 		DCFFF1EF2507001900C3E436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFFF1EE2507001900C3E436 /* AppDelegate.swift */; };
@@ -78,7 +78,7 @@
 		DCA96E5B2507D6AF00579CC8 /* HomeDependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDependencyManager.swift; sourceTree = "<group>"; };
 		DCA96E5E2507D6F100579CC8 /* PokedexFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokedexFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA96E622507D97400579CC8 /* PokedexFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokedexFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCA96E672507DB7A00579CC8 /* PokemonInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInteractor.swift; sourceTree = "<group>"; };
+		DCA96E672507DB7A00579CC8 /* PokemonLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		DCA96E692507DC3E00579CC8 /* PokemonUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonUIComposer.swift; sourceTree = "<group>"; };
 		DCF011B9250708FC006A943A /* HomeNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		DCFFF1EB2507001900C3E436 /* PokeDexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +171,7 @@
 				DC9950A82507E150003C3998 /* TableView */,
 				DC9950A32507DE2E003C3998 /* ErrorView */,
 				DCFFF1F22507001900C3E436 /* PokemonsViewController.swift */,
-				DCA96E672507DB7A00579CC8 /* PokemonInteractor.swift */,
+				DCA96E672507DB7A00579CC8 /* PokemonLoaderPresentationAdapter.swift */,
 				DC3E583C250841710044152A /* PokemonDetailInteractor.swift */,
 			);
 			path = Pokemon;
@@ -385,7 +385,7 @@
 				DCFFF2492507064700C3E436 /* SplashViewController.swift in Sources */,
 				DC9950A72507E01B003C3998 /* extension+loadFromNib.swift in Sources */,
 				DCFFF2452507048900C3E436 /* GradientView.swift in Sources */,
-				DCA96E682507DB7A00579CC8 /* PokemonInteractor.swift in Sources */,
+				DCA96E682507DB7A00579CC8 /* PokemonLoaderPresentationAdapter.swift in Sources */,
 				DCA96E592507D3A400579CC8 /* HomeTabViewController.swift in Sources */,
 				DCFFF1EF2507001900C3E436 /* AppDelegate.swift in Sources */,
 				DC9950B22507EA84003C3998 /* PokemonTableView.swift in Sources */,

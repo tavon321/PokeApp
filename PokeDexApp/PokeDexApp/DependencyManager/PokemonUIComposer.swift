@@ -17,7 +17,7 @@ final class PokemonUIComposer {
         let presenter = PokemonPresenter(errorView: WeakRefVirtualProxy(controller),
                                          loadingView: WeakRefVirtualProxy(controller),
                                          pokemonView: WeakRefVirtualProxy(controller))
-        let interactor = PokemonInteractor(pokemonUseCase: dependecyHandler.pokemonLoaderUseCase)
+        let interactor = PokemonLoaderPresentationAdapter(pokemonUseCase: dependecyHandler.pokemonLoaderUseCase)
         
         interactor.presenter = presenter
         controller.delegate = interactor

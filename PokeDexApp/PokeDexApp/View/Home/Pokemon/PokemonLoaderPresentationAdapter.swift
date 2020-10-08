@@ -13,7 +13,7 @@ public protocol PokemonViewControllerDelegate {
     func didRequestPokemonData()
 }
 
-final class PokemonInteractor: PokemonViewControllerDelegate {
+final class PokemonLoaderPresentationAdapter: PokemonViewControllerDelegate {
     
     private var pokemonUseCase: PokemonRemoteLoader
     
