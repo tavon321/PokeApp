@@ -149,6 +149,5 @@ class PokemonDetailPresenterTests: XCTestCase {
         func display(_ model: PokemonDetailViewModel<AnyImage>) {
             messages.append(model)
         }
-        
     }
 }
